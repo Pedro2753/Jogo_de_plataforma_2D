@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhc0ntj1l0q5k"
+path="res://.godot/imported/One Man Symphony - Cute-Cozy SFX Pack (Free) - 03 Sound Effect 03.mp3-cc083c814ea3f31cff2cc763e4ac697e.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/One Man Symphony - Cute-Cozy SFX Pack (Free)/One Man Symphony - Cute-Cozy SFX Pack (Free) - 03 Sound Effect 03.mp3"
+dest_files=["res://.godot/imported/One Man Symphony - Cute-Cozy SFX Pack (Free) - 03 Sound Effect 03.mp3-cc083c814ea3f31cff2cc763e4ac697e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://brviwqutk7y1g"]
+
+[ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
+[ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="2_jhcoc"]
+[ext_resource type="Texture2D" uid="uid://divousi7ae82b" path="res://assets/sprites/coin1.png" id="2_t3dtl"]
+[ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_igvmx")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="score_ui" type="Label" parent="Control"]
+layout_mode = 2
+offset_left = 79.0
+offset_top = 23.0
+offset_right = 156.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jhcoc")
+text = "0/100"
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 10.0
+offset_right = 66.0
+offset_bottom = 56.0
+texture = ExtResource("2_t3dtl")
+
+[node name="message" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -101.0
+offset_right = 288.0
+offset_bottom = 97.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 12
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_dvtal")
+theme_override_font_sizes/font_size = 64
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="message_timer" type="Timer" parent="."]
+wait_time = 2.053
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="message_timer" to="." method="_on_message_timer_timeout"]

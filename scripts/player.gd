@@ -4,6 +4,7 @@ extends CharacterBody2D
 var SPEED = 120.0
 const JUMP_VELOCITY = -300.0
 var count = 0
+
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 

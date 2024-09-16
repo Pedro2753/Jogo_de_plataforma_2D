@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpm83sy0ih64f"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
+[ext_resource type="Texture2D" uid="uid://bisd5eyteqtb" path="res://assets/images/Singular Mount.png" id="2_tynqj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_by75y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_tynqj")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+anchor_left = 0.0625
+anchor_top = 0.570988
+anchor_right = 0.244792
+anchor_bottom = 0.649691
+theme_override_font_sizes/font_size = 30
+text = "Iniciar"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.712963
+anchor_right = 0.244792
+anchor_bottom = 0.791667
+theme_override_font_sizes/font_size = 30
+text = "Sair"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]

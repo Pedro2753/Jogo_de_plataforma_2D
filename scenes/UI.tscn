@@ -59,6 +59,8 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
+[node name="Node" type="Node" parent="Control"]
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 

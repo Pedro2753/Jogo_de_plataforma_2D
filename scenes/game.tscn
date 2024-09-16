@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4pmjen1ofjow"]
+[gd_scene load_steps=20 format=3 uid="uid://b4pmjen1ofjow"]
 
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dcmhb"]
 [ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_fc4sk"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxgntf5l22jmg" path="res://scenes/killzone.tscn" id="5_jg2g3"]
 [ext_resource type="PackedScene" uid="uid://clm4dn1apofn0" path="res://scenes/slime.tscn" id="6_i2vug"]
 [ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="7_5p7oe"]
+[ext_resource type="PackedScene" uid="uid://b1dxji0nsu8ne" path="res://scenes/pause_menu.tscn" id="9_bqfft"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="10_2o3d2"]
 [ext_resource type="PackedScene" uid="uid://dwgntp7edxjim" path="res://scenes/sign.tscn" id="11_j4ivd"]
 
@@ -676,3 +677,5 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5p7oe")
 theme_override_font_sizes/font_size = 8
+
+[node name="Control" parent="." instance=ExtResource("9_bqfft")]

@@ -258,9 +258,8 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5p7oe")
 theme_override_font_sizes/font_size = 8
 
-[node name="Music" parent="Player/Camera2D" instance=ExtResource("4_r3xl7")]
+[node name="Music" parent="Player/Camera2D" groups=["Persist"] instance=ExtResource("4_r3xl7")]
 position = Vector2(0, 6)
-autoplay = false
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1.00001, 1)
@@ -678,4 +677,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5p7oe")
 theme_override_font_sizes/font_size = 8
 
-[node name="Control" parent="." instance=ExtResource("9_bqfft")]
+[node name="pause_menu" parent="." instance=ExtResource("9_bqfft")]

@@ -1,0 +1,106 @@
+[gd_scene load_steps=2 format=3 uid="uid://cd4tk1b0r4thk"]
+
+[ext_resource type="Script" path="res://save_and_load.gd" id="1_hdphu"]
+
+[node name="save_load" type="Node2D"]
+position = Vector2(483, 221)
+script = ExtResource("1_hdphu")
+
+[node name="Variable_1" type="Node2D" parent="."]
+position = Vector2(-108, -74)
+
+[node name="minus_1" type="Button" parent="Variable_1"]
+offset_left = 220.0
+offset_top = 219.0
+offset_right = 238.0
+offset_bottom = 250.0
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[node name="plus_1" type="Button" parent="Variable_1"]
+offset_left = 254.0
+offset_top = 219.0
+offset_right = 269.0
+offset_bottom = 250.0
+text = "_"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_1" type="RichTextLabel" parent="Variable_1"]
+offset_left = 220.0
+offset_top = 153.0
+offset_right = 268.0
+offset_bottom = 205.0
+theme_override_font_sizes/bold_italics_font_size = 1
+text = "0"
+metadata/_edit_use_anchors_ = true
+
+[node name="Variable_2" type="Node2D" parent="."]
+position = Vector2(-108, -74)
+
+[node name="minus_2" type="Button" parent="Variable_2"]
+offset_left = 313.0
+offset_top = 219.0
+offset_right = 331.0
+offset_bottom = 250.0
+text = "+"
+
+[node name="plus_2" type="Button" parent="Variable_2"]
+offset_left = 344.0
+offset_top = 219.0
+offset_right = 359.0
+offset_bottom = 250.0
+text = "_"
+
+[node name="text_2" type="RichTextLabel" parent="Variable_2"]
+offset_left = 313.0
+offset_top = 153.0
+offset_right = 359.0
+offset_bottom = 205.0
+text = "0"
+
+[node name="Variable_3" type="Node2D" parent="."]
+position = Vector2(-108, -74)
+
+[node name="minus_3" type="Button" parent="Variable_3"]
+offset_left = 399.0
+offset_top = 219.0
+offset_right = 417.0
+offset_bottom = 250.0
+text = "+"
+metadata/_edit_use_anchors_ = true
+
+[node name="plus_3" type="Button" parent="Variable_3"]
+offset_left = 433.0
+offset_top = 219.0
+offset_right = 448.0
+offset_bottom = 250.0
+text = "_"
+metadata/_edit_use_anchors_ = true
+
+[node name="text_3" type="RichTextLabel" parent="Variable_3"]
+offset_left = 399.0
+offset_top = 153.0
+offset_right = 448.0
+offset_bottom = 205.0
+text = "0"
+
+[node name="save_button" type="Button" parent="."]
+offset_left = 112.0
+offset_right = 205.0
+offset_bottom = 31.0
+text = "SAVE DATA"
+
+[node name="load_button" type="Button" parent="."]
+offset_left = 236.0
+offset_right = 340.0
+offset_bottom = 31.0
+text = "LOAD DATA"
+
+[connection signal="pressed" from="Variable_1/minus_1" to="." method="_on_minus_1_pressed"]
+[connection signal="pressed" from="Variable_1/plus_1" to="." method="_on_plus_1_pressed"]
+[connection signal="pressed" from="Variable_2/minus_2" to="." method="_on_minus_2_pressed"]
+[connection signal="pressed" from="Variable_2/plus_2" to="." method="_on_plus_2_pressed"]
+[connection signal="pressed" from="Variable_3/minus_3" to="." method="_on_minus_3_pressed"]
+[connection signal="pressed" from="Variable_3/plus_3" to="." method="_on_plus_3_pressed"]
+[connection signal="pressed" from="save_button" to="." method="_on_save_button_pressed"]
+[connection signal="pressed" from="load_button" to="." method="_on_load_button_pressed"]

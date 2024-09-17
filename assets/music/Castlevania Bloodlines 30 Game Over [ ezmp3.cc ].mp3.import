@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://crxtxc072kyl5"
+path="res://.godot/imported/Castlevania Bloodlines 30 Game Over [ ezmp3.cc ].mp3-391d6a719f8be635a01b6f624f0a7efa.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Castlevania Bloodlines 30 Game Over [ ezmp3.cc ].mp3"
+dest_files=["res://.godot/imported/Castlevania Bloodlines 30 Game Over [ ezmp3.cc ].mp3-391d6a719f8be635a01b6f624f0a7efa.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

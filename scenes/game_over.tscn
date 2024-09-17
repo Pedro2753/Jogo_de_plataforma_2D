@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj7jsbrybeqwj"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_fx7t7"]
+[ext_resource type="Texture2D" uid="uid://biespoknf7rhq" path="res://assets/images/Game Over.jpeg" id="2_0xwxv"]
+[ext_resource type="AudioStream" uid="uid://crxtxc072kyl5" path="res://assets/music/Castlevania Bloodlines 30 Game Over [ ezmp3.cc ].mp3" id="3_oypgh"]
+
+[node name="Game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fx7t7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_0xwxv")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.37066
+anchor_top = 0.20216
+anchor_right = 0.605903
+anchor_bottom = 0.308642
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="song" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_oypgh")

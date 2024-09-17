@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var score_ui: Label = $Control/score_ui
 @onready var all_coin_label: Label = $"../Player/Camera2D/all_coin_label"
 @onready var message: Label = $Control/message
+@onready var game: Node2D = $".."
 
 
 

@@ -15,9 +15,10 @@ func _unhandled_input(event):
 
 
 func _on_resume_btn_pressed() -> void:
-	animation_player.play("resume_game")
 	get_tree().paused = false
-	await animation_player.animation_finished
+	animation_player.play("resume_game")
+	
+
 	visible = false
 	
 	

@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://brviwqutk7y1g"]
+[gd_scene load_steps=7 format=3 uid="uid://brviwqutk7y1g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
 [ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="2_jhcoc"]
 [ext_resource type="Texture2D" uid="uid://divousi7ae82b" path="res://assets/sprites/coin1.png" id="2_t3dtl"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="5_i7ski"]
+[ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="6_ovwt7"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_igvmx")
@@ -67,6 +69,10 @@ wait_time = 10.0
 [node name="message_timer" type="Timer" parent="."]
 wait_time = 2.053
 one_shot = true
+
+[node name="data" parent="." instance=ExtResource("5_i7ski")]
+
+[node name="GameManger" parent="." instance=ExtResource("6_ovwt7")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="message_timer" to="." method="_on_message_timer_timeout"]

@@ -7,3 +7,4 @@ position = Vector2(-1, -2)
 stream = ExtResource("1_7vl5v")
 autoplay = true
 bus = &"Music"
+parameters/looping = true

@@ -1,7 +1,6 @@
 extends Area2D
 
 
-@onready var game_manager = %GameManager
 @onready var animation_player = $AnimationPlayer
 @onready var ui: CanvasLayer = $"../../UI"
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D

@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npd60"]
 shader = ExtResource("1_p62fp")
-shader_parameter/lod = 0.0
+shader_parameter/lod = 1.0
 
 [sub_resource type="Theme" id="Theme_4g2x2"]
 default_font = ExtResource("1_ye65v")
@@ -21,10 +21,6 @@ texture_margin_left = 15.0
 texture_margin_top = 15.0
 texture_margin_right = 15.0
 texture_margin_bottom = 15.0
-expand_margin_left = 15.0
-expand_margin_top = 15.0
-expand_margin_right = 15.0
-expand_margin_bottom = 15.0
 modulate_color = Color(1, 0.733333, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aq7jf"]
@@ -116,39 +112,39 @@ tracks/2/keys = {
 resource_name = "resume_game"
 tracks/0/type = "value"
 tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath("bg_overlay:material")
+tracks/0/enabled = true
+tracks/0/path = NodePath("bg_overlay/menu_holder:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0.166667, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("bg_overlay:material")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("ShaderMaterial_npd60")]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("bg_overlay:material:shader_parameter/lod")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.166667, 0.666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("bg_overlay/menu_holder:modulate")
+tracks/2/path = NodePath("bg_overlay:material:shader_parameter/lod")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.166667, 0.666667),
+"times": PackedFloat32Array(0, 0.433333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [1.0, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1opob"]
@@ -182,7 +178,6 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="menu_holder" type="VBoxContainer" parent="pause_menu/bg_overlay"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

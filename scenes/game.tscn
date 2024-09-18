@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://b4pmjen1ofjow"]
+[gd_scene load_steps=21 format=3 uid="uid://b4pmjen1ofjow"]
 
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dcmhb"]
-[ext_resource type="Script" path="res://scripts/game_manager.gd" id="1_fc4sk"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hq0ch"]
 [ext_resource type="Texture2D" uid="uid://d4eijpekn7t02" path="res://assets/sprites/world_tileset.png" id="2_4yyqq"]
 [ext_resource type="PackedScene" uid="uid://bqsrqq84ofe4j" path="res://scenes/plataform.tscn" id="3_8ad74"]
@@ -13,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b1dxji0nsu8ne" path="res://scenes/pause_menu.tscn" id="9_bqfft"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="10_2o3d2"]
 [ext_resource type="PackedScene" uid="uid://dwgntp7edxjim" path="res://scenes/sign.tscn" id="11_j4ivd"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="14_1ygbu"]
+[ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="14_qintx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ghw"]
 texture = ExtResource("2_4yyqq")
@@ -219,24 +220,8 @@ _data = {
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_w0jtp"]
 distance = -14.0
 
-[node name="Game" type="Node2D"]
+[node name="Stage 1" type="Node2D"]
 script = ExtResource("1_hq0ch")
-
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("1_fc4sk")
-
-[node name="ScoreLabel" type="Label" parent="GameManager"]
-anchors_preset = -1
-anchor_right = 0.0442708
-anchor_bottom = 0.0324074
-offset_left = 761.0
-offset_top = -67.0
-offset_right = 801.0
-offset_bottom = -44.0
-theme_override_fonts/font = ExtResource("7_5p7oe")
-theme_override_font_sizes/font_size = 8
-metadata/_edit_use_anchors_ = true
 
 [node name="Player" parent="." instance=ExtResource("1_dcmhb")]
 position = Vector2(-25, -15)
@@ -248,6 +233,9 @@ limit_bottom = 120
 limit_smoothed = true
 position_smoothing_enabled = true
 
+[node name="Music" parent="Player/Camera2D" groups=["Persist"] instance=ExtResource("4_r3xl7")]
+position = Vector2(250, -108)
+
 [node name="all_coin_label" type="Label" parent="Player/Camera2D"]
 offset_left = -126.0
 offset_top = -41.0
@@ -257,9 +245,6 @@ theme_override_colors/font_color = Color(0.984314, 0.768627, 0.105882, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("7_5p7oe")
 theme_override_font_sizes/font_size = 8
-
-[node name="Music" parent="Player/Camera2D" groups=["Persist"] instance=ExtResource("4_r3xl7")]
-position = Vector2(0, 6)
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1.00001, 1)
@@ -678,3 +663,7 @@ theme_override_fonts/font = ExtResource("7_5p7oe")
 theme_override_font_sizes/font_size = 8
 
 [node name="pause_menu" parent="." instance=ExtResource("9_bqfft")]
+
+[node name="data" parent="." instance=ExtResource("14_1ygbu")]
+
+[node name="GameManger" parent="." instance=ExtResource("14_qintx")]

@@ -3,9 +3,8 @@ extends CanvasLayer
 @onready var score_ui: Label = $Control/score_ui
 @onready var all_coin_label: Label = $"../Player/Camera2D/all_coin_label"
 @onready var message: Label = $Control/message
-@onready var game: Node2D = $".."
-
-
+@onready var game: Node = $GameManger
+@onready var data: Control = $data
 
 var score = 0
 
@@ -26,6 +25,10 @@ func add_point():
 
 	
 func verificar():
-	if score == 100:
+	if score == 1:
+		data.setStar()
 		all_coin_label.text = "Parabéns! Você pegou todas as moedas!"
+		data.my_condition = data.Condition.SAVE
+		data.exibirTela()
+
 		$Timer.start()

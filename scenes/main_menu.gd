@@ -3,6 +3,10 @@ extends Control
 @onready var button: Button = $Button
 @onready var button_2: Button = $Button2
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var data: Control = $data
+
+
+
 
 
 func _ready() -> void:
@@ -14,5 +18,10 @@ func _on_button_pressed() -> void:
 
 
 
-func _on_button_2_pressed() -> void:
+func _on_button_2_pressed():
 	get_tree().quit()
+
+
+func _on_button_3_pressed() -> void:
+	data.my_condition = data.Condition.LOAD
+	data.exibirTela()

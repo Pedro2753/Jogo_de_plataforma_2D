@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cpm83sy0ih64f"]
+[gd_scene load_steps=5 format=3 uid="uid://cpm83sy0ih64f"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
 [ext_resource type="Texture2D" uid="uid://bisd5eyteqtb" path="res://assets/images/Singular Mount.png" id="2_tynqj"]
 [ext_resource type="AudioStream" uid="uid://ckm4yomk40mey" path="res://assets/music/ambient-piano-logo-165357.mp3" id="3_fy8bp"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_3tpsp"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -36,7 +37,8 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
 anchor_left = 0.0625
 anchor_top = 0.570988
 anchor_right = 0.244792
@@ -49,17 +51,30 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
-anchor_top = 0.712963
+anchor_top = 0.848765
 anchor_right = 0.244792
-anchor_bottom = 0.791667
+anchor_bottom = 0.927469
 theme_override_font_sizes/font_size = 30
 text = "Sair"
+metadata/_edit_use_anchors_ = true
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0625
+anchor_top = 0.719136
+anchor_right = 0.244792
+anchor_bottom = 0.79784
+theme_override_font_sizes/font_size = 30
+text = "Carregar"
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fy8bp")
 autoplay = true
 
+[node name="data" parent="." instance=ExtResource("4_3tpsp")]
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]

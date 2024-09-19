@@ -33,6 +33,19 @@ offset_right = 1052.0
 offset_bottom = 226.0
 text = "Game 1"
 
+[node name="stage_label" type="Label" parent="CanvasLayer/game1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.363445
+anchor_top = 0.714286
+anchor_right = 0.405462
+anchor_bottom = 0.896825
+offset_left = 0.000152588
+offset_top = 0.000404358
+offset_right = 0.00012207
+offset_bottom = 15.6984
+metadata/_edit_use_anchors_ = true
+
 [node name="life_label" type="Label" parent="CanvasLayer/game1"]
 layout_mode = 1
 anchors_preset = -1
@@ -61,18 +74,5 @@ anchor_bottom = 0.944444
 metadata/_edit_use_anchors_ = true
 
 [node name="GameManger" parent="." instance=ExtResource("2_rilym")]
-
-[node name="stage_label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.363445
-anchor_top = 0.714286
-anchor_right = 0.405462
-anchor_bottom = 0.896825
-offset_left = 431.462
-offset_top = 161.429
-offset_right = 431.462
-offset_bottom = 177.127
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="CanvasLayer/game1" to="." method="_on_game_1_pressed"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://brviwqutk7y1g"]
+[gd_scene load_steps=8 format=3 uid="uid://brviwqutk7y1g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
 [ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="2_jhcoc"]
 [ext_resource type="Texture2D" uid="uid://divousi7ae82b" path="res://assets/sprites/coin1.png" id="2_t3dtl"]
+[ext_resource type="Texture2D" uid="uid://cme0e0uda2wg4" path="res://assets/images/Avatar-removebg-preview.png" id="4_8j3tq"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="5_i7ski"]
 [ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="6_ovwt7"]
@@ -18,12 +19,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="score_ui" type="Label" parent="Control"]
+[node name="coins_ui" type="Label" parent="Control"]
 layout_mode = 2
 offset_left = 79.0
 offset_top = 23.0
 offset_right = 156.0
 offset_bottom = 41.0
+pivot_offset = Vector2(155, -59)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_jhcoc")
@@ -36,6 +38,16 @@ offset_top = 10.0
 offset_right = 66.0
 offset_bottom = 56.0
 texture = ExtResource("2_t3dtl")
+
+[node name="TextureRect2" type="TextureRect" parent="Control"]
+layout_mode = 2
+offset_left = 1039.0
+offset_top = 535.0
+offset_right = 1150.0
+offset_bottom = 652.0
+texture = ExtResource("4_8j3tq")
+expand_mode = 1
+stretch_mode = 4
 
 [node name="message" type="Label" parent="Control"]
 layout_mode = 1
@@ -63,6 +75,18 @@ autowrap_mode = 2
 
 [node name="Node" type="Node" parent="Control"]
 
+[node name="lifes_ui" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.856771
+anchor_top = 0.91821
+anchor_right = 0.897569
+anchor_bottom = 0.958333
+theme_override_fonts/font = ExtResource("2_jhcoc")
+theme_override_font_sizes/font_size = 25
+text = "3"
+metadata/_edit_use_anchors_ = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 
@@ -71,6 +95,7 @@ wait_time = 2.053
 one_shot = true
 
 [node name="data" parent="." instance=ExtResource("5_i7ski")]
+visible = false
 
 [node name="GameManger" parent="." instance=ExtResource("6_ovwt7")]
 

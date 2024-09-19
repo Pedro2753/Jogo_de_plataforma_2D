@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxgntf5l22jmg"]
+[gd_scene load_steps=4 format=3 uid="uid://bxgntf5l22jmg"]
 
 [ext_resource type="Script" path="res://scripts/killzone.gd" id="1_go1lu"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="2_qywxm"]
+[ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="3_di307"]
 
 [node name="Killzone" type="Area2D"]
 collision_mask = 2
@@ -8,6 +10,11 @@ script = ExtResource("1_go1lu")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="data" parent="." instance=ExtResource("2_qywxm")]
+
+[node name="HUD" parent="." instance=ExtResource("3_di307")]
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,6 +7,13 @@ extends Control
 @onready var stage_label: Label = $CanvasLayer/game1/stage_label
 @onready var game_1: Button = $CanvasLayer/game1
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var ui: CanvasLayer = $"../../UI"
+
+
+
+
+
+
 
 
 var save_path = "user://variable.save"
@@ -15,12 +22,15 @@ var save_path = "user://variable.save"
 
 var coins = 0
 var stars = 0
-var lifes = 0
-var stage = 0
+var lifes = 3
+var stage = 1
 
 enum Condition { SAVE, LOAD, DELETE }
 
 @export var my_condition: Condition
+
+func setLifes():
+	pass
 
 func setStar():
 	stars =+ 1

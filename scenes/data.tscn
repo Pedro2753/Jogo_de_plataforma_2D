@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://br74xx823kg47"]
+[gd_scene load_steps=3 format=3 uid="uid://br74xx823kg47"]
 
 [ext_resource type="Script" path="res://scripts/data.gd" id="1_uteai"]
 [ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="2_rilym"]
-[ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="3_hhgdo"]
 
 [node name="data" type="Control"]
 layout_mode = 3
@@ -50,10 +49,19 @@ metadata/_edit_use_anchors_ = true
 [node name="life_label" type="Label" parent="CanvasLayer/game1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.472689
-anchor_top = 0.761905
-anchor_right = 0.514705
-anchor_bottom = 0.944444
+anchor_left = 0.203782
+anchor_top = 0.698413
+anchor_right = 0.245798
+anchor_bottom = 0.880952
+metadata/_edit_use_anchors_ = true
+
+[node name="coin_label" type="Label" parent="CanvasLayer/game1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.867647
+anchor_top = 0.777778
+anchor_right = 0.909664
+anchor_bottom = 0.960317
 metadata/_edit_use_anchors_ = true
 
 [node name="star_label" type="Label" parent="CanvasLayer/game1"]
@@ -66,7 +74,5 @@ anchor_bottom = 0.944444
 metadata/_edit_use_anchors_ = true
 
 [node name="GameManger" parent="." instance=ExtResource("2_rilym")]
-
-[node name="player_variables" parent="." instance=ExtResource("3_hhgdo")]
 
 [connection signal="pressed" from="CanvasLayer/game1" to="." method="_on_game_1_pressed"]

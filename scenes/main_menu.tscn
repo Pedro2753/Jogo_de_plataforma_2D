@@ -1,11 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpm83sy0ih64f"]
+[gd_scene load_steps=5 format=3 uid="uid://cpm83sy0ih64f"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
 [ext_resource type="Texture2D" uid="uid://bisd5eyteqtb" path="res://assets/images/Singular Mount.png" id="2_tynqj"]
 [ext_resource type="AudioStream" uid="uid://ckm4yomk40mey" path="res://assets/music/ambient-piano-logo-165357.mp3" id="3_fy8bp"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_3tpsp"]
-[ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="5_cqxni"]
-[ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="6_uqfcc"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -76,11 +74,6 @@ stream = ExtResource("3_fy8bp")
 autoplay = true
 
 [node name="data" parent="." instance=ExtResource("4_3tpsp")]
-
-[node name="player_variables" parent="." instance=ExtResource("5_cqxni")]
-
-[node name="UI" parent="." instance=ExtResource("6_uqfcc")]
-visible = false
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

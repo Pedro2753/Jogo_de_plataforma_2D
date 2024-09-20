@@ -4,10 +4,9 @@ extends Control
 @onready var button_2: Button = $Button2
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var data: Control = $data
-@onready var ui: CanvasLayer = $UI
 
 
-var ram = "user://ram.save"
+
 
 
 func _ready() -> void:
@@ -15,12 +14,8 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	ui.ui_lifes = 3
-	var file = FileAccess.open(ram, FileAccess.WRITE)
-	file.store_var(ui.ui_lifes)
-	print("Dados salvos por main_menu. Vidas:" + str(ui.ui_lifes))
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
-	Engine.time_scale = 1.0
+
 
 
 func _on_button_2_pressed():

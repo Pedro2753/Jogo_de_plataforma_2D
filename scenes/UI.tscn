@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://cme0e0uda2wg4" path="res://assets/images/Avatar-removebg-preview.png" id="4_8j3tq"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="5_i7ski"]
-[ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="8_b6b5e"]
+[ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="6_ovwt7"]
 
-[node name="UI" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_igvmx")
 
 [node name="Control" type="Control" parent="."]
@@ -84,6 +84,7 @@ anchor_right = 0.897569
 anchor_bottom = 0.958333
 theme_override_fonts/font = ExtResource("2_jhcoc")
 theme_override_font_sizes/font_size = 25
+text = "3"
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
@@ -94,8 +95,9 @@ wait_time = 2.053
 one_shot = true
 
 [node name="data" parent="." instance=ExtResource("5_i7ski")]
+visible = false
 
-[node name="player_variables" parent="." instance=ExtResource("8_b6b5e")]
+[node name="GameManger" parent="." instance=ExtResource("6_ovwt7")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="message_timer" to="." method="_on_message_timer_timeout"]

@@ -1,19 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpm4qhhk2f74i"]
+[gd_scene load_steps=2 format=3 uid="uid://gd7683jedxne"]
 
-[sub_resource type="GDScript" id="GDScript_snxmb"]
-script/source = "extends Node
-
-
-@onready var ui: CanvasLayer = $\"../../UI\"
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-"
+[ext_resource type="Script" path="res://scripts/player_variables.gd" id="1_cev6v"]
 
 [node name="player_variables" type="Node"]
-script = SubResource("GDScript_snxmb")
+script = ExtResource("1_cev6v")

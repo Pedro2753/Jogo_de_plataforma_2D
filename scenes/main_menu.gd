@@ -17,9 +17,9 @@ func _ready() -> void:
 func _on_button_pressed() -> void:
 	ui.ui_lifes = 3
 	ui.ui_stars = 0
-	var file = FileAccess.open(ram, FileAccess.WRITE)
-	file.store_var(ui.ui_lifes)
-	file.store_var(ui.ui_stars)
+	ui.saveUi()
+	ui.save_ui_stars()
+
 	print("Dados salvos por main_menu. Vidas:" + str(ui.ui_lifes))
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	Engine.time_scale = 1.0

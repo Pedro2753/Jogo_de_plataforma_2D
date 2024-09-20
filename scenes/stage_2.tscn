@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://d18qyk5h01am0"]
+
+[ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dii0f"]
+[ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="2_iicfp"]
+[ext_resource type="PackedScene" uid="uid://b1dxji0nsu8ne" path="res://scenes/pause_menu.tscn" id="3_m4fuk"]
+
+[node name="Stage 2" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_dii0f")]
+position = Vector2(590, -3)
+motion_mode = 1
+
+[node name="UI" parent="." instance=ExtResource("2_iicfp")]
+
+[node name="pause_menu" parent="." instance=ExtResource("3_m4fuk")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 366.0
+offset_top = 190.0
+offset_right = 782.0
+offset_bottom = 504.0
+theme_override_font_sizes/font_size = 50
+text = "Stage 2
+(Work in Progress)"
+horizontal_alignment = 1

@@ -8,17 +8,17 @@ extends CanvasLayer
 @onready var pv: Node = $player_variables
 @onready var stars_ui: Label = $Control/stars_ui
 
-var ui_lifes : int
-var ui_stars = 1
+var ui_lifes = 3
+var ui_stars : int
 
 
 var coins : int
 
-var life_ram = "user://life_ram.save"
+var ram = "user://ram.save"
 var star_ram = "user://star_ram.save"
 
 func saveUi():
-	var file = FileAccess.open(life_ram, FileAccess.WRITE)
+	var file = FileAccess.open(ram, FileAccess.WRITE)
 	file.store_var(ui_lifes)
 	print("dados salvos na ram. Lifes:" + str(ui_lifes))
 
@@ -28,7 +28,7 @@ func save_ui_stars():
 	print("dados salvos na ram. Stars:" + str(ui_stars))
 
 func loadUi():
-	var file = FileAccess.open(life_ram, FileAccess.READ)
+	var file = FileAccess.open(ram, FileAccess.READ)
 	ui_lifes = file.get_var(ui_lifes)
 	print("dados carregados da ram. Lifes:" + str(ui_lifes))
 
@@ -68,16 +68,16 @@ func add_life():
 
 func add_star():
 	ui_stars += 1
-	saveUi()
 	print("Dados salvos por ui.add_star. Stars:" + str(ui_lifes))
 
 func verificar_moedas():
-	if coins == 1:
+	if coins == 100:
 		add_star()
 		saveUi()
 		all_coin_label.text = "Parabéns! Você pegou todas as moedas!"
-		data.my_condition = data.Condition.SAVE
-		data.exibirTela()
+		# Exibir a tela de data apos a condição ser preenchida
+		#data.my_condition = data.Condition.SAVE
+		#data.exibirTela()
 		$Timer.start()
 
 func verificar_vidas():

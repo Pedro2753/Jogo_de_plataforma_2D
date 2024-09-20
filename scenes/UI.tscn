@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://brviwqutk7y1g"]
+[gd_scene load_steps=23 format=3 uid="uid://brviwqutk7y1g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
 [ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="2_jhcoc"]
@@ -6,7 +6,107 @@
 [ext_resource type="Texture2D" uid="uid://cme0e0uda2wg4" path="res://assets/images/Avatar-removebg-preview.png" id="4_8j3tq"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="5_i7ski"]
+[ext_resource type="Texture2D" uid="uid://d0m6rfnyhyvg3" path="res://assets/sprites/Star.png" id="6_au838"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="8_b6b5e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycav0"]
+atlas = ExtResource("6_au838")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0phkr"]
+atlas = ExtResource("6_au838")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgdd"]
+atlas = ExtResource("6_au838")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1xww"]
+atlas = ExtResource("6_au838")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lria"]
+atlas = ExtResource("6_au838")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jg66"]
+atlas = ExtResource("6_au838")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_som7c"]
+atlas = ExtResource("6_au838")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slg7j"]
+atlas = ExtResource("6_au838")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_on3dv"]
+atlas = ExtResource("6_au838")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emfo7"]
+atlas = ExtResource("6_au838")
+region = Rect2(288, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap1ia"]
+atlas = ExtResource("6_au838")
+region = Rect2(320, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hq4qo"]
+atlas = ExtResource("6_au838")
+region = Rect2(352, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2rxi"]
+atlas = ExtResource("6_au838")
+region = Rect2(384, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uupfw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycav0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0phkr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgdd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1xww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lria")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jg66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_som7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_slg7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_on3dv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emfo7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ap1ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hq4qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s2rxi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_igvmx")
@@ -85,6 +185,21 @@ anchor_bottom = 0.958333
 theme_override_fonts/font = ExtResource("2_jhcoc")
 theme_override_font_sizes/font_size = 25
 metadata/_edit_use_anchors_ = true
+
+[node name="stars_ui" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 20.0
+offset_right = 307.0
+offset_bottom = 43.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_jhcoc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
+position = Vector2(196, 30)
+scale = Vector2(1.8125, 1.54687)
+sprite_frames = SubResource("SpriteFrames_uupfw")
+frame_progress = 0.67445
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

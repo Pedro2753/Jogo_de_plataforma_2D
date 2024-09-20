@@ -4,12 +4,11 @@ extends Area2D
 @onready var data: Control = $data
 @onready var ui: CanvasLayer = $UI
 
-var ram = "user://ram.save"
+var life_ram = "user://life_ram.save"
 
 
 func _on_body_entered(body: Node2D) -> void:
-
-	var file = FileAccess.open(ram, FileAccess.READ)
+	var file = FileAccess.open(life_ram, FileAccess.READ)
 	ui.ui_lifes = file.get_var(ui.ui_lifes)
 	ui.ui_lifes -= 1
 	ui.verificar_vidas()

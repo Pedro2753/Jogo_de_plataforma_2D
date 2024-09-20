@@ -13,7 +13,7 @@ one_shot = true
 
 [node name="data" parent="." instance=ExtResource("2_qywxm")]
 
-[node name="HUD" parent="." instance=ExtResource("3_di307")]
+[node name="UI" parent="." instance=ExtResource("3_di307")]
 visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

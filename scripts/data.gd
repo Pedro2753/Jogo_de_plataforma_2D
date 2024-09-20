@@ -2,28 +2,30 @@ extends Control
 
 @onready var game: Node = $GameManger
 @onready var life_label: Label = $CanvasLayer/game1/life_label
-@onready var coin_label: Label = $CanvasLayer/game1/coin_label
 @onready var star_label: Label = $CanvasLayer/game1/star_label
 @onready var stage_label: Label = $CanvasLayer/game1/stage_label
 @onready var game_1: Button = $CanvasLayer/game1
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
-@onready var ui: CanvasLayer = $"../../UI"
 
 
 
 
+var stars = 0
+var lifes = 3
+var stage = 1
 
+func setStar():
+	stars =+ 1
+	print("Estrela adicionada")
+	print(stars)
 
+func addLifes():
+	lifes += 1
 
 
 var save_path = "user://variable.save"
 
 # var condition = ""
-
-var coins = 0
-var stars = 0
-var lifes = 3
-var stage = 1
 
 enum Condition { SAVE, LOAD, DELETE }
 
@@ -31,12 +33,6 @@ enum Condition { SAVE, LOAD, DELETE }
 
 func setLifes():
 	pass
-
-func setStar():
-	stars =+ 1
-	print("Estrela adicionada")
-	print(stars)
-
 
 
 func _ready():
@@ -75,12 +71,10 @@ func _on_game_1_pressed() -> void:
 
 func save_data():
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(coins)
 	file.store_var(lifes)
 	file.store_var(stars)
 	file.store_var(stage)
 	life_label.text = "Lifes:" + str(lifes)
-	coin_label.text = "Coins:" + str(coins)
 	star_label.text = "Stars:" + str(stars)
 	stage_label.text = "Stage:" + str(stage)
 	print("Condição save prenchida")
@@ -88,12 +82,10 @@ func save_data():
 func read_data():
 	if FileAccess.file_exists(save_path):
 		var file = FileAccess.open(save_path, FileAccess.READ)
-		coins = file.get_var(coins)
 		lifes = file.get_var(lifes)
 		stars = file.get_var(stars)
 		stage = file.get_var(stage)
 		life_label.text = "Lifes:" + str(lifes)
-		coin_label.text = "Coins:" + str(coins)
 		star_label.text = "Stars:" + str(stars)
 		stage_label.text = "Stage:" + str(stage)
 		print("dados carregados")

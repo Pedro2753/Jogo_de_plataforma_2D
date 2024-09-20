@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b4pmjen1ofjow"]
+[gd_scene load_steps=23 format=3 uid="uid://b4pmjen1ofjow"]
 
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dcmhb"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hq0ch"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="14_1ygbu"]
 [ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="14_qintx"]
 [ext_resource type="PackedScene" uid="uid://dqmq6dvukcgtj" path="res://scenes/life.tscn" id="15_je7cb"]
+[ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="16_jxv0u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ghw"]
 texture = ExtResource("2_4yyqq")
@@ -676,3 +677,5 @@ position = Vector2(8552, -1966)
 
 [node name="life2" parent="lifes" instance=ExtResource("15_je7cb")]
 position = Vector2(397, 10)
+
+[node name="player_variables" parent="." instance=ExtResource("16_jxv0u")]

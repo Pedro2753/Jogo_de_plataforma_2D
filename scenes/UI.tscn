@@ -175,17 +175,6 @@ autowrap_mode = 2
 
 [node name="Node" type="Node" parent="Control"]
 
-[node name="lifes_ui" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.856771
-anchor_top = 0.91821
-anchor_right = 0.897569
-anchor_bottom = 0.958333
-theme_override_fonts/font = ExtResource("2_jhcoc")
-theme_override_font_sizes/font_size = 25
-metadata/_edit_use_anchors_ = true
-
 [node name="stars_ui" type="Label" parent="Control"]
 layout_mode = 0
 offset_left = 233.0
@@ -201,6 +190,16 @@ scale = Vector2(1.8125, 1.54687)
 sprite_frames = SubResource("SpriteFrames_uupfw")
 frame_progress = 0.67445
 
+[node name="lifeUi" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.854167
+anchor_top = 0.916667
+anchor_right = 0.901042
+anchor_bottom = 0.95216
+text = "PORRA"
+metadata/_edit_use_anchors_ = true
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0
 
@@ -209,6 +208,10 @@ wait_time = 2.053
 one_shot = true
 
 [node name="data" parent="." instance=ExtResource("5_i7ski")]
+offset_left = 1474.0
+offset_top = 975.0
+offset_right = 1514.0
+offset_bottom = 1015.0
 
 [node name="player_variables" parent="." instance=ExtResource("8_b6b5e")]
 

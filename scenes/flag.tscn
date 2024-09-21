@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dit1pairpeu2l"]
+[gd_scene load_steps=11 format=3 uid="uid://dit1pairpeu2l"]
 
 [ext_resource type="Script" path="res://scripts/flag.gd" id="1_n2mnk"]
 [ext_resource type="Texture2D" uid="uid://d4afxm55yy8mi" path="res://assets/sprites/flag animation.png" id="1_qfxi7"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="3_jmrh7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fuw5x"]
 atlas = ExtResource("1_qfxi7")
@@ -60,5 +61,8 @@ frame_progress = 0.299011
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-19, -233)
 shape = SubResource("RectangleShape2D_ip77x")
+
+[node name="data" parent="." instance=ExtResource("3_jmrh7")]
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

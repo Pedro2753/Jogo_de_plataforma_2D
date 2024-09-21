@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://dqmq6dvukcgtj"]
+[gd_scene load_steps=14 format=3 uid="uid://dqmq6dvukcgtj"]
 
 [ext_resource type="Script" path="res://scripts/life.gd" id="1_3s1hu"]
 [ext_resource type="Texture2D" uid="uid://t8ox77smtbkq" path="res://assets/sprites/fruit.png" id="2_ttvr5"]
 [ext_resource type="AudioStream" uid="uid://khqelkol1mej" path="res://assets/sounds/power_up.wav" id="3_4fslm"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_8i1r4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xd1g"]
 atlas = ExtResource("2_ttvr5")
@@ -159,5 +160,8 @@ stream = ExtResource("3_4fslm")
 libraries = {
 "": SubResource("AnimationLibrary_ve241")
 }
+
+[node name="data" parent="." instance=ExtResource("4_8i1r4")]
+visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -15,12 +15,11 @@ func _ready() -> void:
 
 
 func _on_button_pressed() -> void:
-	ui.ui_lifes = 3
-	ui.ui_stars = 0
-	ui.saveUi()
-	ui.save_ui_stars()
+	data.lifes = 3
+	data.stars = 0
+	data.stage = 1
 
-	print("Dados salvos por main_menu. Vidas:" + str(ui.ui_lifes))
+	print("Dados salvos por main_menu. Vidas:" + str(data.lifes))
 	get_tree().change_scene_to_file("res://scenes/game.tscn")
 	Engine.time_scale = 1.0
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://b4pmjen1ofjow"]
+[gd_scene load_steps=24 format=3 uid="uid://b4pmjen1ofjow"]
 
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dcmhb"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hq0ch"]
@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="10_2o3d2"]
 [ext_resource type="PackedScene" uid="uid://dwgntp7edxjim" path="res://scenes/sign.tscn" id="11_j4ivd"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="14_1ygbu"]
-[ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="14_qintx"]
 [ext_resource type="PackedScene" uid="uid://dqmq6dvukcgtj" path="res://scenes/life.tscn" id="15_je7cb"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="16_jxv0u"]
 [ext_resource type="PackedScene" uid="uid://ud0dkcdnjwf7" path="res://scenes/star.tscn" id="17_yjdpl"]
@@ -670,8 +669,6 @@ theme_override_font_sizes/font_size = 8
 
 [node name="data" parent="." instance=ExtResource("14_1ygbu")]
 
-[node name="GameManger" parent="." instance=ExtResource("14_qintx")]
-
 [node name="lifes" type="Node" parent="."]
 
 [node name="life" parent="lifes" instance=ExtResource("15_je7cb")]
@@ -686,4 +683,4 @@ position = Vector2(397, 10)
 position = Vector2(332, -70)
 
 [node name="flag" parent="." instance=ExtResource("18_k7245")]
-position = Vector2(8981, -3435)
+position = Vector2(656, -59)

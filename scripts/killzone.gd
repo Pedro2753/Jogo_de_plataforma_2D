@@ -8,10 +8,8 @@ var ram = "user://ram.save"
 
 
 func _on_body_entered(body: Node2D) -> void:
-	ui.loadUi()
-	ui.ui_lifes -= 1
+	data.lifes -= 1
 	ui.verificar_vidas()
-	ui.saveUi()
 	Engine.time_scale = 0.5
 	body.get_node("CollisionShape2D").queue_free()
 	timer.start()

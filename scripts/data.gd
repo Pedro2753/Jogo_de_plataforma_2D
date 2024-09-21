@@ -1,29 +1,43 @@
 extends Control
 
-@onready var game: Node = $GameManger
+
+
 @onready var life_label: Label = $CanvasLayer/game1/life_label
 @onready var star_label: Label = $CanvasLayer/game1/star_label
 @onready var stage_label: Label = $CanvasLayer/game1/stage_label
-@onready var game_1: Button = $CanvasLayer/game1
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
+@onready var btn_continue: Button = $CanvasLayer/continue
+@onready var ui: CanvasLayer = $"../UI"
 
 
 
 
 var stars = 0
-var lifes = 3
-var stage = 1
+var lifes = 0
+var stage = 0
+var coins = 0
 
-func setStar():
-	stars =+ 1
+
+func addStars():
+	stars += 1
 	print("Estrela adicionada")
 	print(stars)
+	ui.print_stars(stars)
+
 
 func addLifes():
 	lifes += 1
+	ui.print_lifes(lifes)
 
+	
+func addCoins():
+	coins += 1
+	ui.print_coins()
 
-var save_path = "user://variable.save"
+	
+
+var path = "user://path.save"
+
 
 # var condition = ""
 
@@ -37,6 +51,7 @@ func setLifes():
 
 func _ready():
 	canvas_layer.visible = false
+
 
 func _unhandled_input(event):
 		if event.is_action_pressed("save_btn"):
@@ -70,21 +85,20 @@ func _on_game_1_pressed() -> void:
 	"""
 
 func save_data():
-	var file = FileAccess.open(save_path, FileAccess.WRITE)
-	file.store_var(lifes)
-	file.store_var(stars)
-	file.store_var(stage)
-	life_label.text = "Lifes:" + str(lifes)
-	star_label.text = "Stars:" + str(stars)
-	stage_label.text = "Stage:" + str(stage)
+	
+	var mc = FileAccess.open(path, FileAccess.WRITE)
+	mc.store_var(lifes)
+	mc.store_var(stars)
+	mc.store_var(stage)
 	print("Condição save prenchida")
+	read_data()
 
 func read_data():
-	if FileAccess.file_exists(save_path):
-		var file = FileAccess.open(save_path, FileAccess.READ)
-		lifes = file.get_var(lifes)
-		stars = file.get_var(stars)
-		stage = file.get_var(stage)
+	if FileAccess.file_exists(path):
+		var mc = FileAccess.open(path, FileAccess.READ)
+		lifes = mc.get_var()
+		stars = mc.get_var()
+		stage = mc.get_var()
 		life_label.text = "Lifes:" + str(lifes)
 		star_label.text = "Stars:" + str(stars)
 		stage_label.text = "Stage:" + str(stage)
@@ -97,3 +111,10 @@ func load_data():
 
 func delete_data():
 	pass
+
+
+func _on_continue_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/stage_2.tscn")
+	
+	
+################## PARTE 2 DO CODIGO QUE ESTAVA EM UI ##############

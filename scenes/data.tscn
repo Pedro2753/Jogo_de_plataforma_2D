@@ -65,8 +65,16 @@ anchor_right = 0.634454
 anchor_bottom = 0.944444
 metadata/_edit_use_anchors_ = true
 
+[node name="continue" type="Button" parent="CanvasLayer"]
+offset_left = 946.0
+offset_top = 606.0
+offset_right = 1122.0
+offset_bottom = 636.0
+text = "Continue Journey ->"
+
 [node name="GameManger" parent="." instance=ExtResource("2_rilym")]
 
 [node name="player_variables" parent="." instance=ExtResource("3_hhgdo")]
 
 [connection signal="pressed" from="CanvasLayer/game1" to="." method="_on_game_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/continue" to="." method="_on_continue_pressed"]

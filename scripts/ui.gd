@@ -12,10 +12,41 @@ extends CanvasLayer
 
 
 
+<<<<<<< HEAD
 var ui_lifes = 3
 var ui_stars = 0
 var ui_stages = 0
 var ui_coins : int
+=======
+var ui_lifes : int
+var ui_stars = 1
+
+
+var coins : int
+
+var life_ram = "user://life_ram.save"
+var star_ram = "user://star_ram.save"
+
+func saveUi():
+	var file = FileAccess.open(life_ram, FileAccess.WRITE)
+	file.store_var(ui_lifes)
+	print("dados salvos na ram. Lifes:" + str(ui_lifes))
+
+func save_ui_stars():
+	var file = FileAccess.open(star_ram, FileAccess.WRITE)
+	file.store_var(ui_stars)
+	print("dados salvos na ram. Stars:" + str(ui_stars))
+
+func loadUi():
+	var file = FileAccess.open(life_ram, FileAccess.READ)
+	ui_lifes = file.get_var(ui_lifes)
+	print("dados carregados da ram. Lifes:" + str(ui_lifes))
+
+func load_ui_stars():
+	var file = FileAccess.open(star_ram, FileAccess.WRITE)
+	file.store_var(ui_stars)
+	print("dados salvos na ram. Stars:" + str(ui_stars))
+>>>>>>> parent of eabd3f0 (20/09)
 
 func _ready() -> void:
 
@@ -44,6 +75,7 @@ func print_lifes(value):
 	ui_lifes += value
 	print("Dados salvos por ui.add_life. Vidas:" + str(ui_lifes))
 
+<<<<<<< HEAD
 
 func print_stars(value):
 	ui_stars = value
@@ -53,10 +85,20 @@ func print_stars(value):
 func verificar_moedas():
 	if ui_coins == 100:
 		data.stars =+ 1
+=======
+func add_star():
+	ui_stars += 1
+	saveUi()
+	print("Dados salvos por ui.add_star. Stars:" + str(ui_lifes))
+
+func verificar_moedas():
+	if coins == 1:
+		add_star()
+		saveUi()
+>>>>>>> parent of eabd3f0 (20/09)
 		all_coin_label.text = "Parabéns! Você pegou todas as moedas!"
-		# Exibir a tela de data apos a condição ser preenchida
-		#data.my_condition = data.Condition.SAVE
-		#data.exibirTela()
+		data.my_condition = data.Condition.SAVE
+		data.exibirTela()
 		$Timer.start()
 
 func verificar_vidas():

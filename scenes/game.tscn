@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=24 format=3 uid="uid://b4pmjen1ofjow"]
+=======
+[gd_scene load_steps=23 format=3 uid="uid://b4pmjen1ofjow"]
+>>>>>>> parent of eabd3f0 (20/09)
 
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="1_dcmhb"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_hq0ch"]
@@ -15,8 +19,6 @@
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="14_1ygbu"]
 [ext_resource type="PackedScene" uid="uid://dqmq6dvukcgtj" path="res://scenes/life.tscn" id="15_je7cb"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="16_jxv0u"]
-[ext_resource type="PackedScene" uid="uid://ud0dkcdnjwf7" path="res://scenes/star.tscn" id="17_yjdpl"]
-[ext_resource type="PackedScene" uid="uid://dit1pairpeu2l" path="res://scenes/flag.tscn" id="18_k7245"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h4ghw"]
 texture = ExtResource("2_4yyqq")
@@ -678,9 +680,12 @@ position = Vector2(8552, -1966)
 position = Vector2(397, 10)
 
 [node name="player_variables" parent="." instance=ExtResource("16_jxv0u")]
+<<<<<<< HEAD
 
 [node name="star" parent="." instance=ExtResource("17_yjdpl")]
 position = Vector2(332, -70)
 
 [node name="flag" parent="." instance=ExtResource("18_k7245")]
 position = Vector2(656, -59)
+=======
+>>>>>>> parent of eabd3f0 (20/09)

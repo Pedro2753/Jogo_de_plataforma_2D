@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="5_cqxni"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="6_uqfcc"]
 
-[node name="Control" type="Control"]
+[node name="main_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -85,3 +85,4 @@ visible = false
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="fechar_menu" from="data" to="." method="_on_data_fechar_menu"]

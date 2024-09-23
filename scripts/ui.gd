@@ -1,16 +1,23 @@
 extends CanvasLayer
 
+signal ui_data(new_life, new_stars)
+
 @onready var coins_ui: Label = $Control/coins_ui
 @onready var all_coin_label: Label = $"../Player/Camera2D/all_coin_label"
 @onready var message: Label = $Control/message
-@onready var data: Control = $data
 @onready var lifes_ui: Label = $Control/lifes_ui
 @onready var pv: Node = $player_variables
 @onready var stars_ui: Label = $Control/stars_ui
+@onready var stage_ui: Label = $Control/stage_ui
+@onready var data: Control = $"../data"
+@onready var btn_voltar: Button = $CanvasLayer/btn_voltar
 
-var ui_lifes = 3
+
+var ui_lifes : int
 var ui_stars : int
+var ui_stage : int
 
+var load_verify : bool
 
 var coins : int
 
@@ -33,12 +40,11 @@ func loadUi():
 	print("dados carregados da ram. Lifes:" + str(ui_lifes))
 
 func load_ui_stars():
-	var file = FileAccess.open(star_ram, FileAccess.WRITE)
-	file.store_var(ui_stars)
-	print("dados salvos na ram. Stars:" + str(ui_stars))
+	var file = FileAccess.open(star_ram, FileAccess.READ)
+	ui_stars = file.get_var(ui_stars)
+	print("dados caregados da ram. Stars:" + str(ui_stars))
 
 func _ready() -> void:
-	loadUi()
 	await get_tree().create_timer(3.0).timeout
 	$Control/message.text = ("")
 	
@@ -46,6 +52,7 @@ func _ready() -> void:
 func _process(delta):
 	lifes_ui.text = str(ui_lifes)
 	stars_ui.text = str(ui_stars)
+	stage_ui.text = str(ui_stage)
 
 
 func show_message(text):  
@@ -65,10 +72,27 @@ func add_life():
 	lifes_ui.text = str(ui_lifes)
 	saveUi()
 	print("Dados salvos por ui.add_life. Vidas:" + str(ui_lifes))
-
+	emit_signal("life_changed", ui_lifes)
+	
+func change_data():
+	ui_stage += 1
+	data.lifes = ui_lifes
+	data.stars = ui_stars
+	data.stage = ui_stage
+	#emit_signal("ui_data", ui_lifes, ui_stars, ui_stage)
+	print("sinal chamado")
+	data.my_condition = data.Condition.SAVE
+	await get_tree().create_timer(4.0).timeout
+	data.exibirTela()
+	data.btn_next_stage.visible = true
+	data.btn_voltar.visible = false
+	
 func add_star():
 	ui_stars += 1
 	print("Dados salvos por ui.add_star. Stars:" + str(ui_lifes))
+
+func setStage(new_stage):
+	ui_stage = new_stage
 
 func verificar_moedas():
 	if coins == 100:

@@ -65,8 +65,30 @@ anchor_right = 0.634454
 anchor_bottom = 0.944444
 metadata/_edit_use_anchors_ = true
 
+[node name="btn_next_stage" type="Button" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = -0.142361
+anchor_top = 0.274691
+anchor_right = -0.0555556
+anchor_bottom = 0.358025
+offset_left = 1132.0
+offset_top = 400.0
+offset_right = 1186.0
+offset_bottom = 400.0
+text = "Continue jouney ->"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_voltar" type="Button" parent="CanvasLayer"]
+offset_left = 40.0
+offset_top = 586.0
+offset_right = 120.0
+offset_bottom = 628.0
+text = "Voltar"
+
 [node name="GameManger" parent="." instance=ExtResource("2_rilym")]
 
 [node name="player_variables" parent="." instance=ExtResource("3_hhgdo")]
 
 [connection signal="pressed" from="CanvasLayer/game1" to="." method="_on_game_1_pressed"]
+[connection signal="pressed" from="CanvasLayer/btn_next_stage" to="." method="_on_btn_next_stage_pressed"]
+[connection signal="pressed" from="CanvasLayer/btn_voltar" to="." method="_on_btn_voltar_pressed"]

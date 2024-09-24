@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_istjk"]
 [ext_resource type="Shader" path="res://shaders/blur_shader.gdshader" id="1_p62fp"]
-[ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="1_ye65v"]
 [ext_resource type="Texture2D" uid="uid://dsvk4rcwttded" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-001.png" id="2_t4coc"]
+[ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="3_lgi01"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npd60"]
 shader = ExtResource("1_p62fp")
-shader_parameter/lod = 1.0
+shader_parameter/lod = 0.0
 
 [sub_resource type="Theme" id="Theme_4g2x2"]
-default_font = ExtResource("1_ye65v")
+default_font = ExtResource("3_lgi01")
 default_font_size = 25
 
 [sub_resource type="Theme" id="Theme_sy7ma"]
@@ -178,6 +178,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="menu_holder" type="VBoxContainer" parent="pause_menu/bg_overlay"]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

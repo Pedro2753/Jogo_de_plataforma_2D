@@ -1,11 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://cpm83sy0ih64f"]
+[gd_scene load_steps=10 format=3 uid="uid://cpm83sy0ih64f"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
+[ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="1_wmf0p"]
 [ext_resource type="Texture2D" uid="uid://bisd5eyteqtb" path="res://assets/images/Singular Mount.png" id="2_tynqj"]
 [ext_resource type="AudioStream" uid="uid://ckm4yomk40mey" path="res://assets/music/ambient-piano-logo-165357.mp3" id="3_fy8bp"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_3tpsp"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="5_cqxni"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="6_uqfcc"]
+
+[sub_resource type="Theme" id="Theme_8fa5f"]
+default_font = ExtResource("1_wmf0p")
+
+[sub_resource type="Theme" id="Theme_ohcu1"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -14,6 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_8fa5f")
 script = ExtResource("1_by75y")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -23,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_ohcu1")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2

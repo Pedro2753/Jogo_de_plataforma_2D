@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dit1pairpeu2l"]
+[gd_scene load_steps=13 format=3 uid="uid://dit1pairpeu2l"]
 
 [ext_resource type="Script" path="res://scripts/flag.gd" id="1_n2mnk"]
 [ext_resource type="Texture2D" uid="uid://d4afxm55yy8mi" path="res://assets/sprites/flag animation.png" id="1_qfxi7"]
@@ -49,6 +49,42 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ip77x"]
 size = Vector2(20, 510)
 
+[sub_resource type="Animation" id="Animation_a7yp7"]
+resource_name = "pickup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_ab8u1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07aig"]
+_data = {
+"RESET": SubResource("Animation_ab8u1"),
+"pickup": SubResource("Animation_a7yp7")
+}
+
 [node name="flag" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_n2mnk")
@@ -60,5 +96,10 @@ frame_progress = 0.299011
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-19, -233)
 shape = SubResource("RectangleShape2D_ip77x")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_07aig")
+}
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

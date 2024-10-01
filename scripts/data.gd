@@ -1,25 +1,26 @@
 extends Control
 
 
-
 @onready var canvas_layer: CanvasLayer = $CanvasLayer
 @onready var ui: CanvasLayer = $"../UI"
 @onready var main_menu: Control = $"../../main_menu"
 @export var game: Node
 @export var stage_label: Node 
-@export var life_label: Node
-@export var star_label: Node
 @export var game_2: Node
-@export var star_label_2: Node
 @export var stage_label_2: Node
-@export var life_label_2: Node
 @export var game_3: Node
 @export var stage_label_3: Node
-@export var life_label_3: Node
-@export var star_label_3: Node
 @export var btn_voltar: Node
 @export var btn_next_stage: Node
 @export var animation: Node
+@onready var life_label: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/life_label
+@onready var star_label: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/star_label
+@onready var life_label_2: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/life_label2
+@onready var star_label_2: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/star_label2
+@onready var life_label_3: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/life_label3
+@onready var star_label_3: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/star_label3
+
+var autorizacao : bool
 
 var is_on_menu : bool
 
@@ -75,6 +76,7 @@ func setLifes():
 func _ready():
 	canvas_layer.visible = false
 
+
 func _unhandled_input(event):
 		if event.is_action_pressed("save_btn"):
 			my_condition = Condition.SAVE
@@ -108,7 +110,7 @@ func _on_game_2_pressed() -> void:
 		Condition.LOAD:
 			load_data2()
 		Condition.DELETE:
-			delete_data()
+			delete_data2()
 
 
 func _on_game_3_pressed() -> void:
@@ -118,7 +120,7 @@ func _on_game_3_pressed() -> void:
 		Condition.LOAD:
 			load_data3()
 		Condition.DELETE:
-			delete_data()
+			delete_data3()
 
 
 	"""
@@ -135,9 +137,9 @@ func save_data():
 	file.store_var(lifes)
 	file.store_var(stars)
 	file.store_var(stage)
-	life_label.text = "Lifes:" + str(lifes)
-	star_label.text = "Stars:" + str(stars)
-	stage_label.text = "Stage:" + str(stage)
+	life_label.text = "X" + str(lifes)
+	star_label.text = "X" + str(stars)
+	stage_label.text = "STAGE: " + str(stage)
 	print("Condição save prenchida")
 
 func save_data2():
@@ -145,9 +147,9 @@ func save_data2():
 	file.store_var(lifes)
 	file.store_var(stars)
 	file.store_var(stage)
-	life_label_2.text = "Lifes:" + str(lifes)
-	star_label_2.text = "Stars:" + str(stars)
-	stage_label_2.text = "Stage:" + str(stage)
+	life_label_2.text = "X" + str(lifes)
+	star_label_2.text = "X" + str(stars)
+	stage_label_2.text = "STAGE: " + str(stage)
 	print("Condição save prenchida")
 
 
@@ -156,9 +158,9 @@ func save_data3():
 	file.store_var(lifes)
 	file.store_var(stars)
 	file.store_var(stage)
-	life_label_3.text = "Lifes:" + str(lifes)
-	star_label_3.text = "Stars:" + str(stars)
-	stage_label_3.text = "Stage:" + str(stage)
+	life_label_3.text = "X" + str(lifes)
+	star_label_3.text = "X" + str(stars)
+	stage_label_3.text = "STAGE: " + str(stage)
 	print("Condição save prenchida")
 
 
@@ -168,7 +170,7 @@ func read_data():
 		lb_lifes = file.get_var(lifes)
 		lb_stars = file.get_var(stars)
 		lb_stage = file.get_var(stage)
-		life_label.text = "X" + str(lb_lifes)
+		life_label.text = "X" + str(lb_lifes) 
 		star_label.text = "X" + str(lb_stars)
 		stage_label.text = "Stage:" + str(lb_stage)
 		print("dados carregados")
@@ -209,19 +211,20 @@ func load_data():
 			stars = file.get_var(stars)
 			ui.ui_lifes = lifes
 			ui.ui_stars = stars
-	
 			ui.saveUi()
 			ui.save_ui_stars()
+			get_tree().paused = false
 			get_tree().change_scene_to_file(str(actual_stage))
 			ui.lifes_ui.text = str(lifes)
 			ui.stars_ui.text = str(stars)
 			is_on_menu = false
-			print("dados carregados")
 		else:
 			print("no data saved...")
 	else:
 		print("no data saved...")
-	print("condicao load prenchida")
+		game.text = "Dados não encontrados"
+		await get_tree().create_timer(2).timeout
+		game.text = "GAME I"
 
 func load_data2():
 	if lb_stage > 1:
@@ -235,9 +238,9 @@ func load_data2():
 			stars = file.get_var(stars)
 			ui.ui_lifes = lifes
 			ui.ui_stars = stars
-	
 			ui.saveUi()
 			ui.save_ui_stars()
+			get_tree().paused = false
 			get_tree().change_scene_to_file(str(actual_stage))
 			ui.lifes_ui.text = str(lifes)
 			ui.stars_ui.text = str(stars)
@@ -247,36 +250,65 @@ func load_data2():
 			print("no data saved...")
 	else:
 		print("no data saved...")
-	print("condicao load prenchida")
+		game_2.text = "Dados não encontrados"
+		await get_tree().create_timer(2).timeout
+		game_2.text = "GAME II"
 
 func load_data3():
-	if lb_stage > 1:
-		lifes = lb_lifes3 
-		stars = lb_stars3 
-		stage = lb_stage3 
-		var actual_stage = str("res://scenes/stage_"+str(stage)+".tscn")
-		if FileAccess.file_exists(mem_card3):
+	if FileAccess.file_exists(mem_card3):
+		if lb_stage > 1:
+			lifes = lb_lifes3 
+			stars = lb_stars3 
+			stage = lb_stage3 
+			var actual_stage = str("res://scenes/stage_"+str(stage)+".tscn")
 			var file = FileAccess.open(mem_card3, FileAccess.READ)
 			lifes = file.get_var(lifes)
 			stars = file.get_var(stars)
 			ui.ui_lifes = lifes
 			ui.ui_stars = stars
-	
 			ui.saveUi()
 			ui.save_ui_stars()
+			get_tree().paused = false
 			get_tree().change_scene_to_file(str(actual_stage))
 			ui.lifes_ui.text = str(lifes)
 			ui.stars_ui.text = str(stars)
 			is_on_menu = false
-			print("dados carregados")
 		else:
 			print("no data saved...")
 	else:
 		print("no data saved...")
-	print("condicao load prenchida")
+		game_3.text = "Dados não encontrados"
+		await get_tree().create_timer(2).timeout
+		game_3.text = "GAME III"
 
 func delete_data():
-	pass
+		lifes = 0
+		stars = 0
+		stage = 0
+		save_data()
+		read_data()
+		print("Dados deletados")
+
+
+
+
+func delete_data2():
+		lifes = 0
+		stars = 0
+		stage = 0
+		save_data2()
+		read_data()
+		print("Dados deletados")
+
+
+func delete_data3():
+		lifes = 0
+		stars = 0
+		stage = 0
+		save_data3()
+		read_data()
+		print("Dados deletados")
+
 
 
 func _on_ui_ui_data(new_life: Variant, new_stars: Variant, new_stage: Variant) -> void:
@@ -292,7 +324,9 @@ func _on_ui_ui_data(new_life: Variant, new_stars: Variant, new_stage: Variant) -
 	exibirTela()
 
 
+
 func _on_btn_next_stage_pressed() -> void:
+	ui.stage_stars = 0
 	var actual_stage = str("res://scenes/stage_"+str(stage)+".tscn")
 	get_tree().paused = false
 	get_tree().change_scene_to_file(str(actual_stage))
@@ -304,6 +338,7 @@ func _on_btn_next_stage_pressed() -> void:
 func _on_btn_voltar_pressed() -> void:
 	get_tree().paused = false
 	canvas_layer.visible = false
-	main_menu.button.visible = true
-	main_menu.button_2.visible = true
-	main_menu.button_3.visible = true
+	if is_on_menu == true:
+		main_menu.button.visible = true
+		main_menu.button_2.visible = true
+		main_menu.button_3.visible = true

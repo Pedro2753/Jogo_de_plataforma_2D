@@ -1,6 +1,6 @@
 extends Node2D
 
-const SPEED = 60
+const SPEED = 40
 var direction = 1
 
 # Called when the node enters the scene tree for the first time.
@@ -9,6 +9,8 @@ var direction = 1
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var player: CharacterBody2D = $"../../Player"
+@onready var all_coin_label: RichTextLabel = $"../../Player/Camera2D/all_coin_label"
+@onready var ui: CanvasLayer = $"../../UI"
 
 
 
@@ -23,6 +25,14 @@ func _process(delta: float) -> void:
 	
 	position.x += direction * SPEED * delta
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	player.pre_take_damage()
+	print("Colisison detected")
+
+
+func _on_damage_zone_body_entered(body: Node2D) -> void:
 	player.bounce()
 	animation_player.play("death")

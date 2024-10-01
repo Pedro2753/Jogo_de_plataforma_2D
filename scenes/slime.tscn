@@ -1,9 +1,16 @@
-[gd_scene load_steps=15 format=3 uid="uid://clm4dn1apofn0"]
+[gd_scene load_steps=16 format=3 uid="uid://clm4dn1apofn0"]
 
 [ext_resource type="Texture2D" uid="uid://bqg3ui64rj23x" path="res://assets/sprites/slime_green.png" id="1_ld6vc"]
 [ext_resource type="Script" path="res://scripts/slime.gd" id="1_mb2ua"]
-[ext_resource type="PackedScene" uid="uid://bxgntf5l22jmg" path="res://scenes/killzone.tscn" id="2_wc5tn"]
 [ext_resource type="AudioStream" uid="uid://dijn2hmukit8" path="res://assets/sounds/hurt.wav" id="4_ic0j6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_03let"]
+atlas = ExtResource("1_ld6vc")
+region = Rect2(24, 48, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h74ex"]
+atlas = ExtResource("1_ld6vc")
+region = Rect2(48, 48, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_78gmx"]
 atlas = ExtResource("1_ld6vc")
@@ -25,6 +32,23 @@ region = Rect2(72, 24, 24, 24)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_03let")
+}, {
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h74ex")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"death",
+"speed": 20.97
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_78gmx")
 }, {
 "duration": 1.0,
@@ -41,76 +65,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xkj8j"]
-size = Vector2(14, 10)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o72ku"]
-size = Vector2(15, 4)
-
-[sub_resource type="Animation" id="Animation_0bb70"]
-resource_name = "death"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.833333),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DeathSound:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+size = Vector2(13.8999, 7)
 
 [sub_resource type="Animation" id="Animation_wqyd7"]
 length = 0.001
@@ -129,7 +85,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/path = NodePath("damage_zone/CollisionShape2D:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -141,7 +97,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Killzone/CollisionShape2D:disabled")
+tracks/2/path = NodePath("DeathSound:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -153,7 +109,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("DeathSound:playing")
+tracks/3/path = NodePath("Area2D2/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -163,13 +119,95 @@ tracks/3/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_0bb70"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.966667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("damage_zone/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.833333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DeathSound:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimatedSprite2D:animation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"death"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Area2D2/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eecxq"]
 _data = {
 "RESET": SubResource("Animation_wqyd7"),
 "death": SubResource("Animation_0bb70")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouiyr"]
+size = Vector2(14, 7)
+
 [node name="Slime" type="Node2D"]
+light_mask = 7
+visibility_layer = 7
 position = Vector2(0, -12)
 script = ExtResource("1_mb2ua")
 
@@ -177,29 +215,33 @@ script = ExtResource("1_mb2ua")
 position = Vector2(0, 1)
 scale = Vector2(1, 0.916667)
 sprite_frames = SubResource("SpriteFrames_n43ss")
+animation = &"death"
 autoplay = "default"
-frame = 2
-
-[node name="Killzone" parent="." instance=ExtResource("2_wc5tn")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-position = Vector2(1, 6)
-shape = SubResource("RectangleShape2D_xkj8j")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(1, 5)
 target_position = Vector2(-13, 0)
+collision_mask = 7
+collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
+light_mask = 7
+visibility_layer = 7
 position = Vector2(3, 5)
 target_position = Vector2(11, 0)
+collide_with_areas = true
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
+[node name="damage_zone" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0.5, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone"]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(0.0500484, -3.99901)
+rotation = -3.14159
 shape = SubResource("RectangleShape2D_o72ku")
+one_way_collision_margin = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -209,4 +251,15 @@ libraries = {
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ic0j6")
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Area2D2" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(0, 7.5)
+shape = SubResource("RectangleShape2D_ouiyr")
+
+[connection signal="body_entered" from="damage_zone" to="." method="_on_damage_zone_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

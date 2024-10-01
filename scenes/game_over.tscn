@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj7jsbrybeqwj"]
+[gd_scene load_steps=5 format=3 uid="uid://cj7jsbrybeqwj"]
 
 [ext_resource type="Script" path="res://game_over.gd" id="1_fx7t7"]
 [ext_resource type="Texture2D" uid="uid://biespoknf7rhq" path="res://assets/images/Game Over.jpeg" id="2_0xwxv"]
+[ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="3_k5jog"]
 [ext_resource type="AudioStream" uid="uid://crxtxc072kyl5" path="res://assets/music/Castlevania Bloodlines 30 Game Over [ ezmp3.cc ].mp3" id="3_oypgh"]
 
 [node name="Game_over" type="Control"]
@@ -26,15 +27,28 @@ layout_mode = 2
 texture = ExtResource("2_0xwxv")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="MarginContainer/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TextureRect"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.37066
-anchor_top = 0.20216
-anchor_right = 0.605903
-anchor_bottom = 0.308642
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -164.0
+offset_top = 87.0
+offset_right = 164.0
+offset_bottom = 156.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="MarginContainer/TextureRect/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_k5jog")
 theme_override_font_sizes/font_size = 50
-text = "Game Over"
+text = "GAME OVER"
+horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,110 +1,38 @@
-[gd_scene load_steps=22 format=3 uid="uid://brviwqutk7y1g"]
+[gd_scene load_steps=10 format=3 uid="uid://brviwqutk7y1g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
-[ext_resource type="FontFile" uid="uid://bknb8gnran2fu" path="res://assets/fonts/PixelOperator8.ttf" id="2_jhcoc"]
-[ext_resource type="Texture2D" uid="uid://divousi7ae82b" path="res://assets/sprites/coin1.png" id="2_t3dtl"]
-[ext_resource type="Texture2D" uid="uid://cme0e0uda2wg4" path="res://assets/images/Avatar-removebg-preview.png" id="4_8j3tq"]
+[ext_resource type="Texture2D" uid="uid://ck445gi2nxxbk" path="res://assets/sprites/png-transparent-pixel-art-css-sprites-removebg-preview.png" id="4_4c0x2"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
-[ext_resource type="Texture2D" uid="uid://d0m6rfnyhyvg3" path="res://assets/sprites/Star.png" id="6_au838"]
+[ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="4_oj46c"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="8_b6b5e"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ycav0"]
-atlas = ExtResource("6_au838")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb7wo"]
+atlas = ExtResource("4_4c0x2")
+region = Rect2(0, 0, 278, 285)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0phkr"]
-atlas = ExtResource("6_au838")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_kokkl"]
+atlas = ExtResource("4_4c0x2")
+region = Rect2(278, 0, 278, 285)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qgdd"]
-atlas = ExtResource("6_au838")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysjbo"]
+atlas = ExtResource("4_4c0x2")
+region = Rect2(556, 0, 278, 285)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1xww"]
-atlas = ExtResource("6_au838")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0lria"]
-atlas = ExtResource("6_au838")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5jg66"]
-atlas = ExtResource("6_au838")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_som7c"]
-atlas = ExtResource("6_au838")
-region = Rect2(192, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_slg7j"]
-atlas = ExtResource("6_au838")
-region = Rect2(224, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_on3dv"]
-atlas = ExtResource("6_au838")
-region = Rect2(256, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_emfo7"]
-atlas = ExtResource("6_au838")
-region = Rect2(288, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ap1ia"]
-atlas = ExtResource("6_au838")
-region = Rect2(320, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hq4qo"]
-atlas = ExtResource("6_au838")
-region = Rect2(352, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s2rxi"]
-atlas = ExtResource("6_au838")
-region = Rect2(384, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_uupfw"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_rwibf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ycav0")
+"texture": SubResource("AtlasTexture_yb7wo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0phkr")
+"texture": SubResource("AtlasTexture_kokkl")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0qgdd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1xww")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0lria")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5jg66")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_som7c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_slg7j")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_on3dv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_emfo7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ap1ia")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hq4qo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s2rxi")
+"texture": SubResource("AtlasTexture_ysjbo")
 }],
 "loop": true,
 "name": &"default",
-"speed": 7.0
+"speed": 5.0
 }]
 
 [node name="UI" type="CanvasLayer"]
@@ -118,49 +46,20 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="coins_ui" type="Label" parent="Control"]
-layout_mode = 2
-offset_left = 79.0
-offset_top = 23.0
-offset_right = 156.0
-offset_bottom = 41.0
-pivot_offset = Vector2(155, -59)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_jhcoc")
-text = "0/100"
-
-[node name="TextureRect" type="TextureRect" parent="Control"]
-layout_mode = 2
-offset_left = 17.0
-offset_top = 10.0
-offset_right = 66.0
-offset_bottom = 56.0
-texture = ExtResource("2_t3dtl")
-
-[node name="TextureRect2" type="TextureRect" parent="Control"]
-layout_mode = 2
-offset_left = 1039.0
-offset_top = 535.0
-offset_right = 1150.0
-offset_bottom = 652.0
-texture = ExtResource("4_8j3tq")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="message" type="Label" parent="Control"]
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -288.0
-offset_top = -101.0
-offset_right = 288.0
-offset_bottom = 97.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 25
+
+[node name="message" type="Label" parent="Control/MarginContainer"]
+layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -172,57 +71,78 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Node" type="Node" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer"]
+clip_contents = true
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 30
+alignment = 2
 
-[node name="lifes_ui" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.856771
-anchor_top = 0.91821
-anchor_right = 0.897569
-anchor_bottom = 0.958333
-theme_override_fonts/font = ExtResource("2_jhcoc")
-theme_override_font_sizes/font_size = 25
-metadata/_edit_use_anchors_ = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control/MarginContainer/HBoxContainer"]
+position = Vector2(32.5, 29.3125)
+scale = Vector2(0.233813, 0.243421)
+sprite_frames = SubResource("SpriteFrames_rwibf")
 
-[node name="stars_ui" type="Label" parent="Control"]
-layout_mode = 0
-offset_left = 233.0
-offset_top = 20.0
-offset_right = 307.0
-offset_bottom = 43.0
+[node name="stage_ui" type="Label" parent="Control/MarginContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_jhcoc")
-
-[node name="Label" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.0920139
-anchor_right = -0.0512153
-anchor_bottom = 0.0354938
-offset_left = 394.0
-offset_top = 20.0
-offset_right = 394.0
-offset_bottom = 20.0
-text = "Stage:"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("4_oj46c")
+theme_override_font_sizes/font_size = 20
 metadata/_edit_use_anchors_ = true
 
-[node name="stage_ui" type="Label" parent="Control"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.299479
-anchor_top = 0.0354938
-anchor_right = 0.321181
-anchor_bottom = 0.0709877
+[node name="coins_ui" type="RichTextLabel" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(182, 64)
+layout_direction = 2
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("2_jhcoc")
-metadata/_edit_use_anchors_ = true
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_oj46c")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[img=42]res://assets/sprites/coin1.png[/img]"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Control"]
-position = Vector2(196, 30)
-scale = Vector2(1.8125, 1.54687)
-sprite_frames = SubResource("SpriteFrames_uupfw")
-frame_progress = 0.67445
+[node name="stars_ui" type="RichTextLabel" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(112, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/normal_font = ExtResource("4_oj46c")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[img]res://assets/sprites/Star_static.png[/img] 0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="lifes_ui" type="RichTextLabel" parent="Control/MarginContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(182, 140)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/normal_font = ExtResource("4_oj46c")
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
+autowrap_mode = 0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 10.0

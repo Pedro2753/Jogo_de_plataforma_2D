@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpm83sy0ih64f"]
+[gd_scene load_steps=17 format=3 uid="uid://cpm83sy0ih64f"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="1_wmf0p"]
 [ext_resource type="Texture2D" uid="uid://bisd5eyteqtb" path="res://assets/images/Singular Mount.png" id="2_tynqj"]
 [ext_resource type="AudioStream" uid="uid://ckm4yomk40mey" path="res://assets/music/ambient-piano-logo-165357.mp3" id="3_fy8bp"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_3tpsp"]
+[ext_resource type="Texture2D" uid="uid://dsvk4rcwttded" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-001.png" id="4_ckcp5"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="5_cqxni"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="6_uqfcc"]
 
@@ -12,6 +13,51 @@
 default_font = ExtResource("1_wmf0p")
 
 [sub_resource type="Theme" id="Theme_ohcu1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tc8od"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5r825"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ipapd"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_orqjf"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wanjq"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3g25t"]
+texture = ExtResource("4_ckcp5")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -49,11 +95,15 @@ layout_mode = 2
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0625
-anchor_top = 0.570988
-anchor_right = 0.244792
-anchor_bottom = 0.649691
+anchor_left = 0.0607639
+anchor_top = 0.58642
+anchor_right = 0.243056
+anchor_bottom = 0.665123
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_tc8od")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5r825")
 text = "Iniciar"
 metadata/_edit_use_anchors_ = true
 
@@ -64,7 +114,11 @@ anchor_left = 0.0625
 anchor_top = 0.848765
 anchor_right = 0.244792
 anchor_bottom = 0.927469
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_ipapd")
+theme_override_styles/normal = SubResource("StyleBoxTexture_orqjf")
 text = "Sair"
 metadata/_edit_use_anchors_ = true
 
@@ -75,7 +129,11 @@ anchor_left = 0.0625
 anchor_top = 0.719136
 anchor_right = 0.244792
 anchor_bottom = 0.79784
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxTexture_wanjq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3g25t")
 text = "Carregar"
 metadata/_edit_use_anchors_ = true
 

@@ -1,41 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://br74xx823kg47"]
+[gd_scene load_steps=23 format=3 uid="uid://br74xx823kg47"]
 
 [ext_resource type="Script" path="res://scripts/data.gd" id="1_uteai"]
 [ext_resource type="Shader" path="res://shaders/blur_shader.gdshader" id="2_1rh7y"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="2_faw3p"]
 [ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="2_rilym"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="3_hhgdo"]
-[ext_resource type="Texture2D" uid="uid://dhlajxar1ahpq" path="res://assets/sprites/Avatar-removebg-preview (1).png" id="4_71ng7"]
+[ext_resource type="Texture2D" uid="uid://yhgqgscjvd4l" path="res://assets/sprites/Avatar-icon.png" id="4_7os2x"]
+[ext_resource type="Texture2D" uid="uid://covk2tsrww7wx" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-005.png" id="4_hrhhb"]
 [ext_resource type="Texture2D" uid="uid://bufnrtty58xkn" path="res://assets/sprites/Star_static.png" id="5_kfwem"]
 
 [sub_resource type="Theme" id="Theme_lo7do"]
-
-[sub_resource type="Animation" id="Animation_ikeck"]
-resource_name = "show_menu"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect/MarginContainer/menu_holder:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.133333, 0.933333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_b8k7c"]
 length = 0.001
@@ -64,6 +38,33 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_ikeck"]
+resource_name = "show_menu"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect/MarginContainer/menu_holder:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.933333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w214s"]
 _data = {
 "RESET": SubResource("Animation_b8k7c"),
@@ -78,34 +79,62 @@ shader_parameter/lod = 0.0
 default_font = ExtResource("2_faw3p")
 default_font_size = 20
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_stssx"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acd4g"]
 content_margin_top = 50.0
 content_margin_bottom = 50.0
-bg_color = Color(0, 0, 0, 0.388235)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8gesy"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hdl66"]
 content_margin_top = 50.0
 content_margin_bottom = 50.0
-bg_color = Color(0, 0, 0, 0.388235)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
 
-[sub_resource type="LabelSettings" id="LabelSettings_pryo8"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uu6rw"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jtmp"]
 content_margin_top = 50.0
 content_margin_bottom = 50.0
-bg_color = Color(0, 0, 0, 0.470588)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_w4t4q"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vnps7"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1nrde"]
+content_margin_top = 50.0
+content_margin_bottom = 50.0
+texture = ExtResource("4_hrhhb")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhevg"]
 content_margin_left = 10.0
@@ -121,7 +150,7 @@ content_margin_right = 10.0
 content_margin_bottom = 10.0
 bg_color = Color(0, 0, 0, 0.439216)
 
-[node name="data" type="Control" node_paths=PackedStringArray("game", "stage_label", "life_label", "star_label", "game_2", "star_label_2", "stage_label_2", "life_label_2", "game_3", "stage_label_3", "life_label_3", "star_label_3", "btn_voltar", "btn_next_stage", "animation")]
+[node name="data" type="Control" node_paths=PackedStringArray("game", "stage_label", "game_2", "stage_label_2", "game_3", "stage_label_3", "btn_voltar", "btn_next_stage", "animation")]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -130,16 +159,10 @@ theme = SubResource("Theme_lo7do")
 script = ExtResource("1_uteai")
 game = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game")
 stage_label = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game/VBoxContainer/stage_label")
-life_label = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/life_label")
-star_label = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/star_label")
 game_2 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2")
-star_label_2 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/star_label2")
 stage_label_2 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/VBoxContainer/stage_label2")
-life_label_2 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/life_label2")
 game_3 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3")
 stage_label_3 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/VBoxContainer/stage_label3")
-life_label_3 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/life_label3")
-star_label_3 = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/star_label3")
 btn_voltar = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/HBoxContainer/btn_voltar")
 btn_next_stage = NodePath("CanvasLayer/ColorRect/MarginContainer/menu_holder/HBoxContainer/btn_next_stage")
 animation = NodePath("CanvasLayer/AnimationPlayer")
@@ -186,7 +209,10 @@ alignment = 1
 
 [node name="game" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_stssx")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/hover = SubResource("StyleBoxTexture_acd4g")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hdl66")
 text = "GAME I"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game"]
@@ -198,36 +224,17 @@ anchor_right = 0.592199
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 75
 metadata/_edit_use_anchors_ = true
 
-[node name="life_label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer"]
+[node name="life_label" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer"]
 layout_mode = 2
-uppercase = true
-metadata/_edit_use_anchors_ = true
+button_mask = 0
+icon = ExtResource("4_7os2x")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/life_label"]
-layout_mode = 0
-offset_left = -44.0
-offset_top = -14.0
-offset_right = -4.0
-offset_bottom = 26.0
-texture = ExtResource("4_71ng7")
-expand_mode = 1
-
-[node name="star_label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer"]
+[node name="star_label" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer"]
 layout_mode = 2
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/HBoxContainer/star_label"]
-layout_mode = 0
-offset_left = -39.0
-offset_top = -13.0
-offset_right = 1.0
-offset_bottom = 27.0
-texture = ExtResource("5_kfwem")
-expand_mode = 1
+icon = ExtResource("5_kfwem")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game"]
 layout_mode = 0
@@ -237,12 +244,17 @@ offset_bottom = 40.0
 [node name="stage_label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 8
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
 [node name="game_2" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_8gesy")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/hover = SubResource("StyleBoxTexture_4jtmp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_w4t4q")
 text = "GAME II"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2"]
@@ -259,33 +271,13 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 75
 
-[node name="life_label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer"]
+[node name="life_label2" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer"]
 layout_mode = 2
-label_settings = SubResource("LabelSettings_pryo8")
-uppercase = true
-metadata/_edit_use_anchors_ = true
+icon = ExtResource("4_7os2x")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/life_label2"]
-layout_mode = 0
-offset_left = -44.5
-offset_top = -17.0
-offset_right = -4.5
-offset_bottom = 23.0
-texture = ExtResource("4_71ng7")
-expand_mode = 1
-
-[node name="star_label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer"]
+[node name="star_label2" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer"]
 layout_mode = 2
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/star_label2"]
-layout_mode = 0
-offset_left = -38.5
-offset_top = -10.0
-offset_right = 1.5
-offset_bottom = 30.0
-texture = ExtResource("5_kfwem")
+icon = ExtResource("5_kfwem")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2"]
 layout_mode = 0
@@ -295,12 +287,17 @@ theme_override_constants/separation = 8
 
 [node name="stage_label2" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
 [node name="game_3" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_uu6rw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/hover = SubResource("StyleBoxTexture_vnps7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1nrde")
 text = "GAME III"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3"]
@@ -315,33 +312,15 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 50
+theme_override_constants/separation = 75
 
-[node name="life_label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer"]
+[node name="life_label3" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer"]
 layout_mode = 2
-uppercase = true
-metadata/_edit_use_anchors_ = true
+icon = ExtResource("4_7os2x")
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/life_label3"]
-layout_mode = 0
-offset_left = -48.0
-offset_top = -13.0
-offset_right = -8.0
-offset_bottom = 27.0
-texture = ExtResource("4_71ng7")
-expand_mode = 1
-
-[node name="star_label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer"]
+[node name="star_label3" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer"]
 layout_mode = 2
-uppercase = true
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/star_label3"]
-layout_mode = 0
-offset_left = -40.0
-offset_top = -13.0
-offset_bottom = 27.0
-texture = ExtResource("5_kfwem")
+icon = ExtResource("5_kfwem")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3"]
 layout_mode = 0
@@ -350,6 +329,8 @@ offset_bottom = 40.0
 
 [node name="stage_label3" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 text = "
 "
 uppercase = true

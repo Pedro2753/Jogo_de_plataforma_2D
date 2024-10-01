@@ -197,13 +197,26 @@ theme_override_constants/separation = 15
 [node name="resume_btn" type="Button" parent="pause_menu/bg_overlay/menu_holder"]
 layout_mode = 2
 theme = SubResource("Theme_sy7ma")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
 text = "Resumir"
 
+[node name="reload_btn" type="Button" parent="pause_menu/bg_overlay/menu_holder"]
+layout_mode = 2
+theme = SubResource("Theme_sy7ma")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
+theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
+text = "Recarregar"
+
 [node name="quit_btn" type="Button" parent="pause_menu/bg_overlay/menu_holder"]
 layout_mode = 2
 theme = SubResource("Theme_sy7ma")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
 theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
 text = "Sair"
@@ -214,4 +227,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="pause_menu/bg_overlay/menu_holder/resume_btn" to="pause_menu" method="_on_resume_btn_pressed"]
+[connection signal="pressed" from="pause_menu/bg_overlay/menu_holder/reload_btn" to="pause_menu" method="_on_reload_btn_pressed"]
 [connection signal="pressed" from="pause_menu/bg_overlay/menu_holder/quit_btn" to="pause_menu" method="_on_quit_btn_pressed"]

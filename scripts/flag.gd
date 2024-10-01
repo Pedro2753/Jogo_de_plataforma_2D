@@ -13,12 +13,9 @@ func _ready():
 func _on_body_entered(body):
 	animation_player.play("pickup")
 	Engine.time_scale = 0.5
-	ui.add_star()
 	ui.save_ui_stars()
 	ui.change_data()
 	ui.show_message("Level Completo!")
-	await get_tree().create_timer(2.0).timeout
-	ui.show_message("+ 1 Estrela")
 	await get_tree().create_timer(2.0).timeout
 	ui.show_message("")
 	ui.visible = false

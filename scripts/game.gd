@@ -16,29 +16,29 @@ var stage = 1
 func _ready() -> void:
 	ui.loadUi()
 	print("Dados Carregados por game _ready. Vidas:" + str(ui.ui_lifes))
-	ui.show_message("A sua Jornada se inicia!")
+	ui.show_message("Your Journey Begins!")
 	ui.setStage(stage)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	all_coin_label.text = "[wave][rainbow][b][center]Quest da galinha completo![/center][/b][/rainbow][/wave]"
+	all_coin_label.text = "[wave][rainbow][b][center]Chicken Quest Completed![/center][/b][/rainbow][/wave]"
 	await get_tree().create_timer(2).timeout
 	chicken.queue_free()
 	ui.add_star()
-	all_coin_label.text = "[wave][rainbow][b][center]+1 Estrela[/center][/b][/rainbow][/wave]"
+	all_coin_label.text = "[wave][rainbow][b][center]+1 Star[/center][/b][/rainbow][/wave]"
 	await get_tree().create_timer(2).timeout
 	all_coin_label.text = ""
 
 
 func _on_sign_body_entered(body: Node2D) -> void:
-	label.text = "Montanha da singularidade logo a frente" 
+	label.text = "Singular Mount up ahead" 
 
 
 func _on_sign_body_exited(body: Node2D) -> void:
 	label.text = ""
 
 func _on_sign_3_body_entered(body: Node2D) -> void:
-	label3.text = "Cuidado, montanha singular" 
+	label3.text = "Be careful!" 
 
 
 func _on_sign_3_body_exited(body: Node2D) -> void:
@@ -46,7 +46,7 @@ func _on_sign_3_body_exited(body: Node2D) -> void:
 
 
 func _on_sign_2_body_entered(body: Node2D) -> void:
-	label2.text = "Sem possivel retorno a partir dos 100m"
+	label2.text = "No possible return, from 1.000m high onward"
 
 
 func _on_sign_2_body_exited(body: Node2D) -> void:

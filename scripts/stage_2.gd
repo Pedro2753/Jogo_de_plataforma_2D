@@ -14,6 +14,7 @@ func _ready() -> void:
 	ui.setStage(stage)
 	ui.loadUi()
 	ui.load_ui_stars()
+	ui.show_message("STAGE II")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,11 +23,11 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	all_coin_label.text = "[wave][rainbow][b][center]Quest da galinha completo![/center][/b][/rainbow][/wave]"
+	all_coin_label.text = "[wave][rainbow][b][center]Chicken Quest Completed![/center][/b][/rainbow][/wave]"
 	await get_tree().create_timer(2).timeout
 	chicken.queue_free()
 	ui.add_star()
-	all_coin_label.text = "[wave][rainbow][b][center]+1 Estrela[/center][/b][/rainbow][/wave]"
+	all_coin_label.text = "[wave][rainbow][b][center]+1 Star[/center][/b][/rainbow][/wave]"
 	await get_tree().create_timer(2).timeout
 	all_coin_label.text = ""
 

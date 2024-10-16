@@ -1,8 +1,66 @@
-[gd_scene load_steps=16 format=3 uid="uid://clm4dn1apofn0"]
+[gd_scene load_steps=17 format=3 uid="uid://clm4dn1apofn0"]
 
 [ext_resource type="Texture2D" uid="uid://bqg3ui64rj23x" path="res://assets/sprites/slime_green.png" id="1_ld6vc"]
-[ext_resource type="Script" path="res://scripts/slime.gd" id="1_mb2ua"]
 [ext_resource type="AudioStream" uid="uid://dijn2hmukit8" path="res://assets/sounds/hurt.wav" id="4_ic0j6"]
+
+[sub_resource type="GDScript" id="GDScript_7eo3m"]
+resource_name = "slime.gd"
+script/source = "extends CharacterBody2D
+
+
+const JUMP_VELOCITY = -400.0
+const SPEED = 40
+var direction = 1
+
+# Called when the node enters the scene tree for the first time.
+@onready var ray_cast_left: RayCast2D = $RayCastLeft
+@onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var player: CharacterBody2D = $\"../../Player\"
+@onready var all_coin_label: RichTextLabel = $\"../../Player/Camera2D/all_coin_label\"
+@onready var ui: CanvasLayer = $\"../../UI\"
+
+
+func _physics_process(delta: float) -> void:
+	# Add the gravity.
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+
+
+
+
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+
+
+	move_and_slide()
+
+func _process(delta: float) -> void:
+	if ray_cast_right.is_colliding():
+		direction = -1
+		animated_sprite.flip_h = true
+	if ray_cast_left.is_colliding():
+		direction = 1
+		animated_sprite.flip_h = false
+	
+	position.x += direction * SPEED * delta
+	
+
+
+
+func _on_damage_zone_body_entered(body: Node2D) -> void:
+	player.bounce()
+	fucking_dies()
+
+func fucking_dies():
+	animation_player.play(\"death\")
+
+
+func _on_area_2d_2_body_entered(body: Node2D) -> void:
+	player.pre_take_damage()
+	print(\"Colisison detected\")
+"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03let"]
 atlas = ExtResource("1_ld6vc")
@@ -12,19 +70,19 @@ region = Rect2(24, 48, 24, 24)
 atlas = ExtResource("1_ld6vc")
 region = Rect2(48, 48, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_78gmx"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_rp4br"]
 atlas = ExtResource("1_ld6vc")
 region = Rect2(0, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_80fh0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6cc7c"]
 atlas = ExtResource("1_ld6vc")
 region = Rect2(24, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_d8le8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5tuq"]
 atlas = ExtResource("1_ld6vc")
 region = Rect2(48, 24, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bcd6n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1gwj"]
 atlas = ExtResource("1_ld6vc")
 region = Rect2(72, 24, 24, 24)
 
@@ -49,16 +107,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_78gmx")
+"texture": SubResource("AtlasTexture_rp4br")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_80fh0")
+"texture": SubResource("AtlasTexture_6cc7c")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d8le8")
+"texture": SubResource("AtlasTexture_w5tuq")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bcd6n")
+"texture": SubResource("AtlasTexture_v1gwj")
 }],
 "loop": true,
 "name": &"default",
@@ -205,23 +263,23 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouiyr"]
 size = Vector2(14, 7)
 
-[node name="Slime" type="Node2D"]
-light_mask = 7
-visibility_layer = 7
+[sub_resource type="CircleShape2D" id="CircleShape2D_2uv2d"]
+radius = 9.0
+
+[node name="Slime" type="CharacterBody2D"]
+light_mask = 2
 position = Vector2(0, -12)
-script = ExtResource("1_mb2ua")
+script = SubResource("GDScript_7eo3m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(1, 0.916667)
 sprite_frames = SubResource("SpriteFrames_n43ss")
-animation = &"death"
 autoplay = "default"
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 position = Vector2(1, 5)
 target_position = Vector2(-13, 0)
-collision_mask = 7
 collide_with_areas = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -232,12 +290,12 @@ target_position = Vector2(11, 0)
 collide_with_areas = true
 
 [node name="damage_zone" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+light_mask = 2
+visibility_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="damage_zone"]
-light_mask = 3
-visibility_layer = 3
+light_mask = 2
 position = Vector2(0.0500484, -3.99901)
 rotation = -3.14159
 shape = SubResource("RectangleShape2D_o72ku")
@@ -250,8 +308,11 @@ libraries = {
 
 [node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ic0j6")
+bus = &"Sound Effects"
 
 [node name="Area2D2" type="Area2D" parent="."]
+light_mask = 2
+visibility_layer = 2
 collision_layer = 2
 collision_mask = 2
 
@@ -260,6 +321,12 @@ light_mask = 2
 visibility_layer = 2
 position = Vector2(0, 7.5)
 shape = SubResource("RectangleShape2D_ouiyr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_2uv2d")
+one_way_collision = true
 
 [connection signal="body_entered" from="damage_zone" to="." method="_on_damage_zone_body_entered"]
 [connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

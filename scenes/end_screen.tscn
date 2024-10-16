@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://dn7yh22m1tl2g"]
+
+[ext_resource type="Script" path="res://scripts/end_screen.gd" id="1_e15e1"]
+[ext_resource type="Texture2D" uid="uid://cjj31uphppo74" path="res://assets/images/The End.jpeg" id="2_flgdd"]
+[ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="3_nxinp"]
+[ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="4_gkind"]
+[ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="5_bx5md"]
+
+[node name="End_screen" type="CanvasLayer"]
+script = ExtResource("1_e15e1")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_flgdd")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -503.0
+offset_top = -119.0
+offset_right = 1144.0
+offset_bottom = 187.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 193
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 244
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer2"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer2/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_nxinp")
+theme_override_font_sizes/font_size = 50
+text = "Thank you for playing!"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.5
+offset_right = 240.5
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_constants/margin_top = 37
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Label" type="Label" parent="TextureRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("3_nxinp")
+theme_override_font_sizes/font_size = 75
+text = "THE END"
+
+[node name="UI" parent="." instance=ExtResource("4_gkind")]
+visible = false
+
+[node name="data" parent="." instance=ExtResource("5_bx5md")]
+visible = false

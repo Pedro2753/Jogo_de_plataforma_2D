@@ -1,13 +1,15 @@
-[gd_scene load_steps=23 format=3 uid="uid://br74xx823kg47"]
+[gd_scene load_steps=32 format=3 uid="uid://br74xx823kg47"]
 
 [ext_resource type="Script" path="res://scripts/data.gd" id="1_uteai"]
-[ext_resource type="Shader" path="res://shaders/blur_shader.gdshader" id="2_1rh7y"]
+[ext_resource type="Shader" path="res://scenes/shaders/blur_shader.gdshader" id="2_1rh7y"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="2_faw3p"]
 [ext_resource type="PackedScene" uid="uid://k1fqanrjusmp" path="res://scenes/GameManger.tscn" id="2_rilym"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="3_hhgdo"]
 [ext_resource type="Texture2D" uid="uid://yhgqgscjvd4l" path="res://assets/sprites/Avatar-icon.png" id="4_7os2x"]
 [ext_resource type="Texture2D" uid="uid://covk2tsrww7wx" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-005.png" id="4_hrhhb"]
+[ext_resource type="Script" path="res://scripts/data_button.gd" id="5_afhgx"]
 [ext_resource type="Texture2D" uid="uid://bufnrtty58xkn" path="res://assets/sprites/Star_static.png" id="5_kfwem"]
+[ext_resource type="Texture2D" uid="uid://bc257lhob4hef" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-000.png" id="8_m50k1"]
 
 [sub_resource type="Theme" id="Theme_lo7do"]
 
@@ -79,6 +81,14 @@ shader_parameter/lod = 0.0
 default_font = ExtResource("2_faw3p")
 default_font_size = 20
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t8tn5"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_acd4g"]
 content_margin_top = 50.0
 content_margin_bottom = 50.0
@@ -97,6 +107,15 @@ texture_margin_left = 25.0
 texture_margin_top = 25.0
 texture_margin_right = 25.0
 texture_margin_bottom = 25.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n1q2r"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4jtmp"]
 content_margin_top = 50.0
@@ -116,6 +135,15 @@ texture_margin_left = 25.0
 texture_margin_top = 25.0
 texture_margin_right = 25.0
 texture_margin_bottom = 25.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h83cr"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vnps7"]
 content_margin_top = 50.0
@@ -135,20 +163,55 @@ texture_margin_left = 25.0
 texture_margin_top = 25.0
 texture_margin_right = 25.0
 texture_margin_bottom = 25.0
+modulate_color = Color(0, 0, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yhevg"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.521569)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gu0lv"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0rr4"]
-content_margin_left = 10.0
-content_margin_top = 10.0
-content_margin_right = 10.0
-content_margin_bottom = 10.0
-bg_color = Color(0, 0, 0, 0.439216)
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hs0wy"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8a56w"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lhwnb"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_soix6"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nk81v"]
+texture = ExtResource("8_m50k1")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(0, 0, 0, 1)
 
 [node name="data" type="Control" node_paths=PackedStringArray("game", "stage_label", "game_2", "stage_label_2", "game_3", "stage_label_3", "btn_voltar", "btn_next_stage", "animation")]
 layout_mode = 3
@@ -192,14 +255,14 @@ anchor_bottom = 1.0
 offset_left = -4.0
 offset_top = -52.0
 offset_right = 8.0
-offset_bottom = 50.0
+offset_bottom = 59.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_vfvle")
 theme_override_constants/margin_left = 300
-theme_override_constants/margin_top = 150
+theme_override_constants/margin_top = 85
 theme_override_constants/margin_right = 300
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 98
 
 [node name="menu_holder" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer"]
 layout_direction = 1
@@ -207,13 +270,27 @@ layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder"]
+layout_mode = 2
+
+[node name="type_label" type="Label" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
 [node name="game" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_t8tn5")
 theme_override_styles/hover = SubResource("StyleBoxTexture_acd4g")
 theme_override_styles/normal = SubResource("StyleBoxTexture_hdl66")
 text = "GAME I"
+script = ExtResource("5_afhgx")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/game"]
 layout_mode = 1
@@ -253,6 +330,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_n1q2r")
 theme_override_styles/hover = SubResource("StyleBoxTexture_4jtmp")
 theme_override_styles/normal = SubResource("StyleBoxTexture_w4t4q")
 text = "GAME II"
@@ -296,6 +374,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_h83cr")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vnps7")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1nrde")
 text = "GAME III"
@@ -343,12 +422,20 @@ theme_override_constants/separation = 30
 
 [node name="btn_voltar" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_yhevg")
-text = "Voltar"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_gu0lv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_hs0wy")
+theme_override_styles/normal = SubResource("StyleBoxTexture_8a56w")
+text = "Back"
 
 [node name="btn_next_stage" type="Button" parent="CanvasLayer/ColorRect/MarginContainer/menu_holder/HBoxContainer"]
 layout_mode = 2
-theme_override_styles/normal = SubResource("StyleBoxFlat_w0rr4")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_lhwnb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_soix6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_nk81v")
 text = "Continue jouney ->"
 metadata/_edit_use_anchors_ = true
 

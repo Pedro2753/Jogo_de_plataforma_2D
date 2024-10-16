@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2k8jt5xwqci7"]
+
+[ext_resource type="Texture2D" uid="uid://cmni8pkwfg76v" path="res://assets/sprites/poste-removebg-preview.png" id="1_tg5qc"]
+
+[node name="Poste" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.76837e-07, -37)
+scale = Vector2(0.197368, 0.176991)
+texture = ExtResource("1_tg5qc")

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 signal ui_data(new_life, new_stars)
 
+
 @onready var killzone: Area2D = $"../Killzone"
 @onready var stage_ui: Label = $Control/MarginContainer/HBoxContainer/stage_ui
 @onready var data: Control = $"../data"
@@ -14,6 +15,7 @@ signal ui_data(new_life, new_stars)
 @onready var player: CharacterBody2D = $"../Player"
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../Player/AnimatedSprite2D"
 @onready var heart: AnimatedSprite2D = $Control/MarginContainer/HBoxContainer/AnimatedSprite2D
+@onready var galinha_label: RichTextLabel = $Control/MarginContainer/HBoxContainer/galinha_label
 
 
 
@@ -21,14 +23,18 @@ var ui_lifes : int
 var ui_stars : int
 var stage_stars : int
 var ui_stage : int
+var galinhas : int
+
 
 var coin_icon = "[img=64]res://assets/sprites/coin1.png[/img]"
 var life_icon = "[img=128]res://assets/sprites/Avatar-removebg-preview (1).png[/img]"
 var star_icon = "[img=64]res://assets/sprites/Star_static.png[/img]"
+var galinha_icon = "[img=64]res://assets/sprites/Pixel-Art Animated Chicken/chicken_icon.png[/img]"
 
 var load_verify : bool
 
 var coins : int
+var silver_coins : int
 
 var ram = "user://ram.save"
 var star_ram = "user://star_ram.save"
@@ -64,6 +70,13 @@ func _process(delta):
 	stars_ui.text = str(star_icon) + str(stage_stars) + "/3"
 	stage_ui.text = "STAGE: " + str(ui_stage)
 	coins_ui.text = str(coin_icon) + str(coins) + "/100" 
+	galinha_label.text = str(galinha_icon) + str(galinhas) + "/100"
+	
+	if ui_stage == 6:
+		galinha_label.visible = true
+	else:
+		galinha_label.visible = false
+
 
 func show_message(text):  
 	message.text = (text)
@@ -74,6 +87,20 @@ func add_coin():
 	coins += 1
 	verificar_moedas()
 
+func add_silver_coin():
+	silver_coins += 1
+	all_coin_label.text = "[wave][b][center]"+ str(silver_coins) + "/3"
+	await get_tree().create_timer(2).timeout
+	all_coin_label.text = ""
+	verificar_silver()
+	
+
+func add_galinhas():
+	galinhas += 1
+
+func dec_galinhas():
+	galinhas -= 1
+
 func add_life():
 	# data.addLifes()
 	ui_lifes += 1
@@ -81,6 +108,9 @@ func add_life():
 	saveUi()
 	print("Dados salvos por ui.add_life. Vidas:" + str(ui_lifes))
 	emit_signal("life_changed", ui_lifes)
+	all_coin_label.text = "[wave][b][center]+1 Life[/center][/b][/wave]"
+	await get_tree().create_timer(2).timeout
+	all_coin_label.text = ""
 	
 func change_data():
 	ui_stage += 1
@@ -92,12 +122,17 @@ func change_data():
 	data.my_condition = data.Condition.SAVE
 	await get_tree().create_timer(2.0).timeout
 	data.exibirTela()
+	data.type_label.text = "SAVE DATA"
+	data.game.grab_focus()
 	data.btn_next_stage.visible = true
 	data.btn_voltar.visible = false
 	
 func add_star():
 	stage_stars += 1
-	print("Dados salvos por ui.add_star. Stars:" + str(ui_lifes))
+	print("Dados salvos por ui.add_star. Stars:" + str(ui_stars))
+	all_coin_label.text = "[wave][rainbow][b][center]+1 Star[/center][/b][/rainbow][/wave]"
+	await get_tree().create_timer(2).timeout
+	all_coin_label.text = ""
 
 func setStage(new_stage):
 	ui_stage = new_stage
@@ -106,17 +141,27 @@ func verificar_moedas():
 	if coins == 100:
 		add_star()
 		saveUi()
-		all_coin_label.text = "[wave][rainbow][b][center]Parabéns![/center][/b][/rainbow][/wave]"
+		all_coin_label.text = "[wave][rainbow][b][center]Congratulations[/center][/b][/rainbow][/wave]"
 		await get_tree().create_timer(2).timeout
-		all_coin_label.text = "[wave][rainbow][b][center]Você pegou todas as moedas![/center][/b][/rainbow][/wave]"
+		all_coin_label.text = "[wave][rainbow][b][center]You picked up all 100 coins[/center][/b][/rainbow][/wave]"
 		await get_tree().create_timer(4).timeout
-		all_coin_label.text = "[wave][rainbow][b][center]+1 Estrela[/center][/b][/rainbow][/wave]"
+		all_coin_label.text = "[wave][rainbow][b][center]+1 Star[/center][/b][/rainbow][/wave]"
 		await get_tree().create_timer(2).timeout
 		all_coin_label.text = ""
 		# Exibir a tela de data apos a condição ser preenchida
 		#data.my_condition = data.Condition.SAVE
 		#data.exibirTela()
 		$Timer.start()
+
+func verificar_silver():
+	if silver_coins == 3:
+		add_star()
+		saveUi()
+		all_coin_label.text = "[wave][b][center]You picked up all 3 silver coins![/center][/b][/wave]"
+		await get_tree().create_timer(6).timeout
+		all_coin_label.text = "[wave][rainbow][b][center] +1 Star[/center][/b][/rainbow][/wave]"
+		await get_tree().create_timer(2).timeout
+		all_coin_label.text = ""
 
 func verificar_vidas():
 	if ui_lifes < 0:
@@ -125,6 +170,8 @@ func verificar_vidas():
 		pass
 
 func verificar_hp():
+	if player.hp == 4:
+		heart.frame = 3
 	if player.hp == 3:
 		heart.frame = 0
 	if player.hp == 2 :

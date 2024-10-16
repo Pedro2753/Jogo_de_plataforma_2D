@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://br6uorle783qu"]
+
+[ext_resource type="Script" path="res://scripts/spike.gd" id="1_55b16"]
+[ext_resource type="Texture2D" uid="uid://bh6ce3ruybg4e" path="res://assets/sprites/16-bit-spike-Sheet.png" id="1_hxxrq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_noeeh"]
+
+[node name="Spike" type="Area2D"]
+light_mask = 2
+visibility_layer = 3
+position = Vector2(0, -8)
+collision_mask = 2
+linear_damp_space_override = 1
+script = ExtResource("1_55b16")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 2
+shape = SubResource("CircleShape2D_noeeh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hxxrq")
+region_enabled = true
+region_rect = Rect2(0, 0, 16.0247, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

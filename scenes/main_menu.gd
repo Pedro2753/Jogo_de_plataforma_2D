@@ -16,12 +16,14 @@ var ram = "user://ram.save"
 
 
 func _ready() -> void:
+	button.grab_focus()
 	audio_stream_player_2d.play()
 	data.is_on_menu = true
 	
 func _on_button_pressed() -> void:
 	ui.ui_lifes = 3
 	ui.ui_stars = 0
+	data.stars = 0
 	ui.saveUi()
 	ui.save_ui_stars()
 
@@ -36,9 +38,11 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed() -> void:
 	data.btn_next_stage.visible = false
+	data.game.grab_focus()
 	data.btn_voltar.visible = true
 	data.my_condition = data.Condition.LOAD
 	data.exibirTela()
+	data.type_label.text = "LOAD DATA"
 
 
 func _on_data_fechar_menu() -> void:

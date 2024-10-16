@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpwy6nhxwy46t"]
+
+[ext_resource type="Texture2D" uid="uid://bq1nq60gtao8b" path="res://assets/sprites/Pixel-Art Animated Chicken/chicken_plate.png" id="1_8onr4"]
+
+[node name="chicken_sign" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 0)
+scale = Vector2(1.825, 1.87838)
+texture = ExtResource("1_8onr4")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cd70ou3ki1w3d"
+path="res://.godot/imported/Undertale OST_ 021 - Dogsong [ ezmp3.cc ].mp3-ff9c8f37bb1fbc531b6936b5730974d8.mp3str"
+
+[deps]
+
+source_file="res://assets/music/Undertale OST_ 021 - Dogsong [ ezmp3.cc ].mp3"
+dest_files=["res://.godot/imported/Undertale OST_ 021 - Dogsong [ ezmp3.cc ].mp3-ff9c8f37bb1fbc531b6936b5730974d8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

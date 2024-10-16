@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://brviwqutk7y1g"]
+[gd_scene load_steps=12 format=3 uid="uid://brviwqutk7y1g"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_igvmx"]
 [ext_resource type="Texture2D" uid="uid://ck445gi2nxxbk" path="res://assets/sprites/png-transparent-pixel-art-css-sprites-removebg-preview.png" id="4_4c0x2"]
 [ext_resource type="FontFile" uid="uid://cfrc3bnjccs5w" path="res://assets/fonts/PixelOperator8-Bold.ttf" id="4_dvtal"]
+[ext_resource type="Texture2D" uid="uid://u7h12e2g2vem" path="res://assets/sprites/heart.png" id="4_ipvqm"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="4_oj46c"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="8_b6b5e"]
 
@@ -18,6 +19,10 @@ region = Rect2(278, 0, 278, 285)
 atlas = ExtResource("4_4c0x2")
 region = Rect2(556, 0, 278, 285)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rae87"]
+atlas = ExtResource("4_ipvqm")
+region = Rect2(0, 0, 256, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rwibf"]
 animations = [{
 "frames": [{
@@ -29,6 +34,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ysjbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rae87")
 }],
 "loop": true,
 "name": &"default",
@@ -82,6 +90,20 @@ alignment = 2
 position = Vector2(32.5, 29.3125)
 scale = Vector2(0.233813, 0.243421)
 sprite_frames = SubResource("SpriteFrames_rwibf")
+
+[node name="galinha_label" type="RichTextLabel" parent="Control/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(226, 60)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/table_h_separation = -74
+theme_override_constants/text_highlight_v_padding = -57
+theme_override_constants/line_separation = 2
+theme_override_fonts/normal_font = ExtResource("4_oj46c")
+theme_override_fonts/bold_font = ExtResource("4_oj46c")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
 
 [node name="stage_ui" type="Label" parent="Control/MarginContainer/HBoxContainer"]
 clip_contents = true

@@ -220,5 +220,6 @@ shape = SubResource("CircleShape2D_paorv")
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_7wxw5")
+bus = &"Sound Effects"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

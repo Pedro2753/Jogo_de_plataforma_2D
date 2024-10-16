@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1dxji0nsu8ne"]
+[gd_scene load_steps=17 format=3 uid="uid://b1dxji0nsu8ne"]
 
 [ext_resource type="Script" path="res://scenes/pause_menu.gd" id="1_istjk"]
-[ext_resource type="Shader" path="res://shaders/blur_shader.gdshader" id="1_p62fp"]
+[ext_resource type="Shader" path="res://scenes/shaders/blur_shader.gdshader" id="1_p62fp"]
 [ext_resource type="Texture2D" uid="uid://dsvk4rcwttded" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-001.png" id="2_t4coc"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="3_lgi01"]
+[ext_resource type="Texture2D" uid="uid://bc257lhob4hef" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-000.png" id="5_dm0mv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_npd60"]
 shader = ExtResource("1_p62fp")
@@ -14,6 +15,14 @@ default_font = ExtResource("3_lgi01")
 default_font_size = 25
 
 [sub_resource type="Theme" id="Theme_sy7ma"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2u806"]
+texture = ExtResource("5_dm0mv")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_55tys"]
 texture = ExtResource("2_t4coc")
@@ -29,6 +38,14 @@ texture_margin_left = 15.0
 texture_margin_top = 15.0
 texture_margin_right = 15.0
 texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ngmn"]
+texture = ExtResource("5_dm0mv")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+modulate_color = Color(1, 0.733333, 0, 1)
 
 [sub_resource type="Animation" id="Animation_rd3ug"]
 length = 0.001
@@ -199,18 +216,20 @@ layout_mode = 2
 theme = SubResource("Theme_sy7ma")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_2u806")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
-text = "Resumir"
+text = "Resume"
 
 [node name="reload_btn" type="Button" parent="pause_menu/bg_overlay/menu_holder"]
 layout_mode = 2
 theme = SubResource("Theme_sy7ma")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
+theme_override_styles/focus = SubResource("StyleBoxTexture_2ngmn")
 theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
-text = "Recarregar"
+text = "Reload"
 
 [node name="quit_btn" type="Button" parent="pause_menu/bg_overlay/menu_holder"]
 layout_mode = 2
@@ -219,7 +238,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_styles/hover = SubResource("StyleBoxTexture_55tys")
 theme_override_styles/normal = SubResource("StyleBoxTexture_aq7jf")
-text = "Sair"
+text = "Exit"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="pause_menu"]
 libraries = {

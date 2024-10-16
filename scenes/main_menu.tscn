@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cpm83sy0ih64f"]
+[gd_scene load_steps=18 format=3 uid="uid://cpm83sy0ih64f"]
 
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_by75y"]
 [ext_resource type="FontFile" uid="uid://db26xb3clbl6l" path="res://assets/fonts/Renogare-Regular.otf" id="1_wmf0p"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://ckm4yomk40mey" path="res://assets/music/ambient-piano-logo-165357.mp3" id="3_fy8bp"]
 [ext_resource type="PackedScene" uid="uid://br74xx823kg47" path="res://scenes/data.tscn" id="4_3tpsp"]
 [ext_resource type="Texture2D" uid="uid://dsvk4rcwttded" path="res://assets/kenney_fantasy-ui-borders/PNG/Default/Border/panel-border-001.png" id="4_ckcp5"]
+[ext_resource type="Script" path="res://scripts/menu_button.gd" id="5_41nww"]
 [ext_resource type="PackedScene" uid="uid://bpm4qhhk2f74i" path="res://scenes/player_variables.tscn" id="5_cqxni"]
 [ext_resource type="PackedScene" uid="uid://brviwqutk7y1g" path="res://scenes/UI.tscn" id="6_uqfcc"]
 
@@ -92,37 +93,71 @@ layout_mode = 2
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_direction = 3
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Label" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Developed by Pedro2753"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/MarginContainer"]
+custom_minimum_size = Vector2(1, 0)
+layout_direction = 3
+layout_mode = 2
+size_flags_stretch_ratio = 2.76
+
+[node name="Label2" type="Label" parent="MarginContainer/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Ver 1.0"
+
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0607639
-anchor_top = 0.58642
-anchor_right = 0.243056
-anchor_bottom = 0.665123
+anchor_left = 0.0659722
+anchor_top = 0.597222
+anchor_right = 0.289931
+anchor_bottom = 0.753086
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxTexture_tc8od")
 theme_override_styles/normal = SubResource("StyleBoxTexture_5r825")
-text = "Iniciar"
+text = "Start Game"
+script = ExtResource("5_41nww")
 metadata/_edit_use_anchors_ = true
 
 [node name="Button2" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.0625
+anchor_left = 0.0633681
 anchor_top = 0.848765
 anchor_right = 0.244792
-anchor_bottom = 0.927469
+anchor_bottom = 0.941358
+rotation = -0.00136085
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxTexture_ipapd")
 theme_override_styles/normal = SubResource("StyleBoxTexture_orqjf")
-text = "Sair"
+text = "Exit"
 metadata/_edit_use_anchors_ = true
 
 [node name="Button3" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.0625
@@ -134,7 +169,7 @@ theme_override_constants/outline_size = 5
 theme_override_font_sizes/font_size = 30
 theme_override_styles/hover = SubResource("StyleBoxTexture_wanjq")
 theme_override_styles/normal = SubResource("StyleBoxTexture_3g25t")
-text = "Carregar"
+text = "Load Game"
 metadata/_edit_use_anchors_ = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

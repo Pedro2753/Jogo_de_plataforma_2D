@@ -13,7 +13,6 @@ var direction = 1
 @onready var ui: CanvasLayer = $"../../UI"
 
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if ray_cast_right.is_colliding():
@@ -35,4 +34,7 @@ func _on_area_2d_2_body_entered(body: Node2D) -> void:
 
 func _on_damage_zone_body_entered(body: Node2D) -> void:
 	player.bounce()
+	fucking_dies()
+
+func fucking_dies():
 	animation_player.play("death")

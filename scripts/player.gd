@@ -13,7 +13,10 @@ var knockback_vector := Vector2.ZERO
 @onready var hurt_sound: AudioStreamPlayer2D = $hurt_sound
 @onready var ray_left: RayCast2D = $ray_left
 @onready var ray_right: RayCast2D = $ray_right
+@onready var animated_sword: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var slime: CharacterBody2D = $Slime
 
+var triple_jump = false
 
 
 func _physics_process(delta: float) -> void:
@@ -21,18 +24,24 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
+	if Input.is_action_just_pressed("atack"):
+		animated_sword.visible = true
+		animated_sword.play("default")
+		await get_tree().create_timer(1).timeout
+		animated_sword.visible = false
+
 	# Handle jump.
-	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		count = 0
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
 	# Handle Double Jump
-	if count == 0:
-		if Input.is_action_just_pressed("jump") and not is_on_floor():
-			count = + 1
+	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		if count == 0:
+			count = 1
 			velocity.y = JUMP_VELOCITY
 			jump_sound.play()
+
 	# Run
 	if Input.is_action_just_pressed("run") and is_on_floor():
 		SPEED = 200
@@ -97,3 +106,4 @@ func take_damage(knockback_force := Vector2.ZERO, duration := 0.25):
 		animated_sprite_2d.modulate = Color(1,0,0,1)
 		knockback_tween.tween_property(animated_sprite_2d, "modulate", Color(1,1,1,1), duration)
 		hurt_sound.play()
+		

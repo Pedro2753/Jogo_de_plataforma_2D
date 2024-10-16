@@ -2,6 +2,7 @@ extends CanvasLayer
 @onready var resume_btn: Button = $bg_overlay/menu_holder/resume_btn
 @onready var quit_btn: Button = $bg_overlay/menu_holder/quit_btn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var control: Control = $".."
 
 func _ready():
 	visible = false

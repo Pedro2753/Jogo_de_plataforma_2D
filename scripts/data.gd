@@ -19,6 +19,7 @@ extends Control
 @onready var star_label_2: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_2/HBoxContainer/star_label2
 @onready var life_label_3: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/life_label3
 @onready var star_label_3: Button = $CanvasLayer/ColorRect/MarginContainer/menu_holder/game_3/HBoxContainer/star_label3
+@onready var type_label: Label = $CanvasLayer/ColorRect/MarginContainer/menu_holder/VBoxContainer/type_label
 
 var autorizacao : bool
 
@@ -75,6 +76,7 @@ func setLifes():
 
 func _ready():
 	canvas_layer.visible = false
+	game.grab_focus()
 
 
 func _unhandled_input(event):
@@ -87,12 +89,20 @@ func exibirTela():
 	get_tree().paused = true
 	read_data()
 	canvas_layer.visible = true
+	game.grab_focus()
 	print("Tela Exibida")
 	if is_on_menu == true:
 		main_menu.button.visible = false
 		main_menu.button_2.visible = false
 		main_menu.button_3.visible = false
-
+		ui.stage_stars = 0
+	var actual_stage = str("res://scenes/stage_"+str(stage)+".tscn")
+	get_tree().paused = false
+	if stage > 7:
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	else:
+		get_tree().change_scene_to_file(str(actual_stage))
+		ui.visible = true
 
 func _on_game_1_pressed() -> void:
 	match my_condition:
@@ -140,6 +150,9 @@ func save_data():
 	life_label.text = "X" + str(lifes)
 	star_label.text = "X" + str(stars)
 	stage_label.text = "STAGE: " + str(stage)
+	game.text = "Data Saved"
+	await get_tree().create_timer(2).timeout
+	game.text = "GAME I"
 	print("Condição save prenchida")
 
 func save_data2():
@@ -150,6 +163,9 @@ func save_data2():
 	life_label_2.text = "X" + str(lifes)
 	star_label_2.text = "X" + str(stars)
 	stage_label_2.text = "STAGE: " + str(stage)
+	game.text = "Data Saved"
+	await get_tree().create_timer(2).timeout
+	game_2.text = "GAME II"
 	print("Condição save prenchida")
 
 
@@ -161,6 +177,9 @@ func save_data3():
 	life_label_3.text = "X" + str(lifes)
 	star_label_3.text = "X" + str(stars)
 	stage_label_3.text = "STAGE: " + str(stage)
+	game.text = "Data Saved"
+	await get_tree().create_timer(2).timeout
+	game_3.text = "GAME III"
 	print("Condição save prenchida")
 
 
@@ -219,10 +238,10 @@ func load_data():
 			ui.stars_ui.text = str(stars)
 			is_on_menu = false
 		else:
-			print("no data saved...")
+			game.text = "Data not found"
 	else:
 		print("no data saved...")
-		game.text = "Dados não encontrados"
+		game.text = "Data not found"
 		await get_tree().create_timer(2).timeout
 		game.text = "GAME I"
 
@@ -247,10 +266,10 @@ func load_data2():
 			is_on_menu = false
 			print("dados carregados")
 		else:
-			print("no data saved...")
+			game_2.text = "Data not found"
 	else:
 		print("no data saved...")
-		game_2.text = "Dados não encontrados"
+		game_2.text = "Data not found"
 		await get_tree().create_timer(2).timeout
 		game_2.text = "GAME II"
 
@@ -274,10 +293,10 @@ func load_data3():
 			ui.stars_ui.text = str(stars)
 			is_on_menu = false
 		else:
-			print("no data saved...")
+			game_3.text = "Data not found"
 	else:
 		print("no data saved...")
-		game_3.text = "Dados não encontrados"
+		game_3.text = "Data not found"
 		await get_tree().create_timer(2).timeout
 		game_3.text = "GAME III"
 
@@ -329,8 +348,11 @@ func _on_btn_next_stage_pressed() -> void:
 	ui.stage_stars = 0
 	var actual_stage = str("res://scenes/stage_"+str(stage)+".tscn")
 	get_tree().paused = false
-	get_tree().change_scene_to_file(str(actual_stage))
-	ui.visible = true
+	if stage > 7:
+		get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	else:
+		get_tree().change_scene_to_file(str(actual_stage))
+		ui.visible = true
 
 
 
@@ -338,6 +360,7 @@ func _on_btn_next_stage_pressed() -> void:
 func _on_btn_voltar_pressed() -> void:
 	get_tree().paused = false
 	canvas_layer.visible = false
+	main_menu.button.grab_focus()
 	if is_on_menu == true:
 		main_menu.button.visible = true
 		main_menu.button_2.visible = true

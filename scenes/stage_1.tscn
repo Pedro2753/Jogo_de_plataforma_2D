@@ -645,47 +645,6 @@ offset_bottom = 23.0
 
 [node name="UI" parent="." instance=ExtResource("10_64f2q")]
 
-[node name="Signs" type="Node" parent="."]
-
-[node name="Sign2" parent="Signs" instance=ExtResource("11_o8mbd")]
-position = Vector2(552, -21)
-
-[node name="Label" type="Label" parent="Signs/Sign2"]
-offset_left = -147.0
-offset_top = -37.0
-offset_right = -107.0
-offset_bottom = -14.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_hswvf")
-theme_override_font_sizes/font_size = 8
-
-[node name="Sign3" parent="Signs" instance=ExtResource("11_o8mbd")]
-position = Vector2(2441, -117)
-
-[node name="Label" type="Label" parent="Signs/Sign3"]
-offset_left = -34.0
-offset_top = -43.0
-offset_right = 6.0
-offset_bottom = -20.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_hswvf")
-theme_override_font_sizes/font_size = 8
-
-[node name="Sign" parent="Signs" instance=ExtResource("11_o8mbd")]
-position = Vector2(281, -70)
-
-[node name="Label" type="Label" parent="Signs/Sign"]
-offset_left = -120.0
-offset_top = -40.0
-offset_right = -1.0
-offset_bottom = -12.0
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_hswvf")
-theme_override_font_sizes/font_size = 8
-
 [node name="pause_menu" parent="." instance=ExtResource("12_wvk07")]
 
 [node name="data" parent="." instance=ExtResource("13_wtljj")]
@@ -766,12 +725,11 @@ shape = SubResource("RectangleShape2D_b0weq")
 [node name="Slime" parent="slimes" instance=ExtResource("22_8dhu0")]
 position = Vector2(397, 36)
 
+[node name="Signs" type="Node" parent="."]
+
+[node name="Sign" parent="Signs" instance=ExtResource("11_o8mbd")]
+position = Vector2(167, -8)
+
 [connection signal="ui_data" from="UI" to="data" method="_on_ui_ui_data"]
-[connection signal="body_entered" from="Signs/Sign2" to="." method="_on_sign_2_body_entered"]
-[connection signal="body_exited" from="Signs/Sign2" to="." method="_on_sign_2_body_exited"]
-[connection signal="body_entered" from="Signs/Sign3" to="." method="_on_sign_3_body_entered"]
-[connection signal="body_exited" from="Signs/Sign3" to="." method="_on_sign_3_body_exited"]
-[connection signal="body_entered" from="Signs/Sign" to="." method="_on_sign_body_entered"]
-[connection signal="body_exited" from="Signs/Sign" to="." method="_on_sign_body_exited"]
 [connection signal="data_ui" from="data" to="UI" method="_on_data_data_ui"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

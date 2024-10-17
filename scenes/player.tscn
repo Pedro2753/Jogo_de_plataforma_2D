@@ -343,7 +343,7 @@ light_mask = 5
 visibility_layer = 5
 z_index = 5
 collision_layer = 70
-collision_mask = 55
+collision_mask = 183
 script = ExtResource("1_164g4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -373,7 +373,7 @@ position = Vector2(-5, -8)
 scale = Vector2(10, 10)
 exclude_parent = false
 target_position = Vector2(-2.1, 0)
-collision_mask = 176
+collision_mask = 48
 hit_from_inside = true
 collide_with_areas = true
 
@@ -384,7 +384,7 @@ position = Vector2(5, -8)
 scale = Vector2(10, 10)
 exclude_parent = false
 target_position = Vector2(2.1, 0)
-collision_mask = 176
+collision_mask = 48
 hit_from_inside = true
 collide_with_areas = true
 

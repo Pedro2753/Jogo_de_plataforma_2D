@@ -34,7 +34,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cmujr"]
 radius = 8.0
-height = 24.0
+height = 16.0
 
 [node name="fireball" type="Area2D" groups=["fireball"]]
 collision_layer = 128

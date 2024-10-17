@@ -264,11 +264,13 @@ _data = {
 size = Vector2(14, 7)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2uv2d"]
-radius = 9.0
+radius = 8.0
 
 [node name="Slime" type="CharacterBody2D"]
 light_mask = 2
 position = Vector2(0, -12)
+collision_layer = 129
+collision_mask = 65
 script = SubResource("GDScript_7eo3m")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

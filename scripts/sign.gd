@@ -7,11 +7,10 @@ extends Node2D
 
 
 const lines : Array[String] = [
-	"Hello,there!",
-	"You are playing Singular Mount",
-	"Go to the top!",
-	"And...",
-	"DON'T STOP!",
+	"",
+	"You are 7000m away 
+	   from the top of 
+		 the mount.",
 ]
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -19,7 +18,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		texture.show()
 		if event.is_action_pressed("interact") && !DialogManager.is_message_active:
 			texture.hide()
-			DialogManager.start_message(global_position, lines)
+			DialogManager.start_message(Vector2(485, -70), lines)
 	else:
 		texture.hide()
 		if DialogManager.dialog_box != null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://b4haprgu0clyh"]
+[gd_scene load_steps=25 format=3 uid="uid://b4haprgu0clyh"]
 
 [ext_resource type="Script" path="res://scripts/stage_5.gd" id="1_t7px8"]
 [ext_resource type="PackedScene" uid="uid://dutdlospo5ce4" path="res://scenes/player.tscn" id="4_7kjvc"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://clm4dn1apofn0" path="res://scenes/slime.tscn" id="16_w6jpp"]
 [ext_resource type="PackedScene" uid="uid://w7v0t110s7yu" path="res://scenes/silver_coin.tscn" id="20_jpbx6"]
 [ext_resource type="PackedScene" uid="uid://ytvnbuxhapo4" path="res://scenes/trex.tscn" id="20_ynwb7"]
+[ext_resource type="PackedScene" uid="uid://cv7uvn23035fe" path="res://scenes/signs/sign3.tscn" id="21_4ir7p"]
 [ext_resource type="PackedScene" uid="uid://br6uorle783qu" path="res://scenes/spike.tscn" id="21_lxsmo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gpxt6"]
@@ -1031,3 +1032,6 @@ position = Vector2(8472, -1180)
 
 [node name="trex2" parent="t_rexes" instance=ExtResource("20_ynwb7")]
 position = Vector2(8263, -478)
+
+[node name="Sign" parent="." instance=ExtResource("21_4ir7p")]
+position = Vector2(791, -23)

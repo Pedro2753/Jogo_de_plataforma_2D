@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bn0om33j44jmr"]
+
+[ext_resource type="Script" path="res://scenes/signs/sign_4.gd" id="1_pk38j"]
+[ext_resource type="Texture2D" uid="uid://d4eijpekn7t02" path="res://assets/sprites/world_tileset.png" id="2_2c2dn"]
+[ext_resource type="Texture2D" uid="uid://b840d3o2e14al" path="res://assets/sprites/Mini UI/Speech_Emotes (16 x 16).png" id="3_fjwbc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iew4u"]
+size = Vector2(39, 11)
+
+[node name="Sign" type="Node2D"]
+script = ExtResource("1_pk38j")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2c2dn")
+region_enabled = true
+region_rect = Rect2(128.738, 48, 15.262, 17.5213)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.039
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -17)
+texture = ExtResource("3_fjwbc")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="area_sign" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="collision" type="CollisionShape2D" parent="area_sign"]
+position = Vector2(1.5, -2.5)
+shape = SubResource("RectangleShape2D_iew4u")
+
+[connection signal="body_entered" from="area_sign" to="." method="_on_area_sign_body_entered"]
+[connection signal="body_exited" from="area_sign" to="." method="_on_area_sign_body_exited"]
